@@ -1,0 +1,1316 @@
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"Simple_TL_Control_1_Count7_1.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	Simple_TL_Control_1_Count7_1_initVar
+  20              		.bss
+  21              		.type	Simple_TL_Control_1_Count7_1_initVar, %object
+  22              		.size	Simple_TL_Control_1_Count7_1_initVar, 1
+  23              	Simple_TL_Control_1_Count7_1_initVar:
+  24 0000 00       		.space	1
+  25              		.section	.text.Simple_TL_Control_1_Count7_1_Init,"ax",%progbits
+  26              		.align	2
+  27              		.global	Simple_TL_Control_1_Count7_1_Init
+  28              		.code	16
+  29              		.thumb_func
+  30              		.type	Simple_TL_Control_1_Count7_1_Init, %function
+  31              	Simple_TL_Control_1_Count7_1_Init:
+  32              	.LFB0:
+  33              		.file 1 "Generated_Source\\PSoC4\\Simple_TL_Control_1_Count7_1.c"
+   1:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * File Name: Simple_TL_Control_1_Count7_1.c
+   3:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Version 1.0
+   4:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+   5:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Description:
+   6:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  This file provides source code for the Count7 component's API.
+   7:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+   8:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Note:
+   9:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  10:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+  11:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Copyright 2013, Cypress Semiconductor Corporation.  All rights reserved.
+  12:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * You may use this file only in accordance with the license, terms, conditions,
+  13:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  14:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * the software package with which this file was provided.
+  15:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+  16:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  17:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** #include "Simple_TL_Control_1_Count7_1.h"
+  18:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  19:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** uint8 Simple_TL_Control_1_Count7_1_initVar = 0u;
+  20:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  21:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  22:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+  23:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Function Name: Simple_TL_Control_1_Count7_1_Init
+  24:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 2
+
+
+  25:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  26:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Summary:
+  27:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  Initializes or restores the component according to the parameter editor
+  28:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  settings.
+  29:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  30:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Parameters:
+  31:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+  32:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  33:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Return:
+  34:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+  35:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  36:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Theory:
+  37:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  It is not necessary to call Count7_Init() because the Count7_Start() API
+  38:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  calls this function and is the preferred method to begin component
+  39:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  operation.
+  40:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  41:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+  42:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** void Simple_TL_Control_1_Count7_1_Init(void) 
+  43:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** {
+  34              		.loc 1 43 0
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38 0000 80B5     		push	{r7, lr}
+  39              		.cfi_def_cfa_offset 8
+  40              		.cfi_offset 7, -8
+  41              		.cfi_offset 14, -4
+  42 0002 00AF     		add	r7, sp, #0
+  43              		.cfi_def_cfa_register 7
+  44:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     /* Set the initial period value from parameter editor */
+  45:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     Simple_TL_Control_1_Count7_1_PERIOD_REG = Simple_TL_Control_1_Count7_1_INITIAL_PERIOD;
+  44              		.loc 1 45 0
+  45 0004 024B     		ldr	r3, .L2
+  46 0006 0A22     		movs	r2, #10
+  47 0008 1A70     		strb	r2, [r3]
+  46:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** }
+  48              		.loc 1 46 0
+  49 000a C046     		nop
+  50 000c BD46     		mov	sp, r7
+  51              		@ sp needed
+  52 000e 80BD     		pop	{r7, pc}
+  53              	.L3:
+  54              		.align	2
+  55              	.L2:
+  56 0010 83000F40 		.word	1074724995
+  57              		.cfi_endproc
+  58              	.LFE0:
+  59              		.size	Simple_TL_Control_1_Count7_1_Init, .-Simple_TL_Control_1_Count7_1_Init
+  60              		.section	.text.Simple_TL_Control_1_Count7_1_Enable,"ax",%progbits
+  61              		.align	2
+  62              		.global	Simple_TL_Control_1_Count7_1_Enable
+  63              		.code	16
+  64              		.thumb_func
+  65              		.type	Simple_TL_Control_1_Count7_1_Enable, %function
+  66              	Simple_TL_Control_1_Count7_1_Enable:
+  67              	.LFB1:
+  47:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 3
+
+
+  48:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  49:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+  50:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Function Name: Simple_TL_Control_1_Count7_1_Enable
+  51:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+  52:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  53:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Summary:
+  54:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  Enables the software enable of the counter.
+  55:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  56:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Parameters:
+  57:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+  58:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  59:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Return:
+  60:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+  61:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  62:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Theory:
+  63:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  It is not necessary to call Count7_Enable() because the Count7_Start() API
+  64:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  calls this function, which is the preferred method to begin component
+  65:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  operation.
+  66:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  This API performs modification of auxiliary control register which is a
+  67:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  shared resource so it is required to disable interrupts until the
+  68:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  modification will complete.
+  69:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  70:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+  71:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** void Simple_TL_Control_1_Count7_1_Enable(void) 
+  72:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** {
+  68              		.loc 1 72 0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 8
+  71              		@ frame_needed = 1, uses_anonymous_args = 0
+  72 0000 90B5     		push	{r4, r7, lr}
+  73              		.cfi_def_cfa_offset 12
+  74              		.cfi_offset 4, -12
+  75              		.cfi_offset 7, -8
+  76              		.cfi_offset 14, -4
+  77 0002 83B0     		sub	sp, sp, #12
+  78              		.cfi_def_cfa_offset 24
+  79 0004 00AF     		add	r7, sp, #0
+  80              		.cfi_def_cfa_register 7
+  73:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     uint8 interruptState;
+  74:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  75:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     interruptState = CyEnterCriticalSection();
+  81              		.loc 1 75 0
+  82 0006 FC1D     		adds	r4, r7, #7
+  83 0008 FFF7FEFF 		bl	CyEnterCriticalSection
+  84 000c 0300     		movs	r3, r0
+  85 000e 2370     		strb	r3, [r4]
+  76:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     /* Set the counter start bit in auxiliary control. If routed enable
+  77:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     * isn't used then this will immediately star the Count7 operation.
+  78:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     */
+  79:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     Simple_TL_Control_1_Count7_1_AUX_CONTROL_REG |= Simple_TL_Control_1_Count7_1_COUNTER_START;
+  86              		.loc 1 79 0
+  87 0010 084A     		ldr	r2, .L5
+  88 0012 084B     		ldr	r3, .L5
+  89 0014 1B78     		ldrb	r3, [r3]
+  90 0016 DBB2     		uxtb	r3, r3
+  91 0018 2021     		movs	r1, #32
+  92 001a 0B43     		orrs	r3, r1
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 4
+
+
+  93 001c DBB2     		uxtb	r3, r3
+  94 001e 1370     		strb	r3, [r2]
+  80:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  81:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     CyExitCriticalSection(interruptState);
+  95              		.loc 1 81 0
+  96 0020 FB1D     		adds	r3, r7, #7
+  97 0022 1B78     		ldrb	r3, [r3]
+  98 0024 1800     		movs	r0, r3
+  99 0026 FFF7FEFF 		bl	CyExitCriticalSection
+  82:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** }
+ 100              		.loc 1 82 0
+ 101 002a C046     		nop
+ 102 002c BD46     		mov	sp, r7
+ 103 002e 03B0     		add	sp, sp, #12
+ 104              		@ sp needed
+ 105 0030 90BD     		pop	{r4, r7, pc}
+ 106              	.L6:
+ 107 0032 C046     		.align	2
+ 108              	.L5:
+ 109 0034 93000F40 		.word	1074725011
+ 110              		.cfi_endproc
+ 111              	.LFE1:
+ 112              		.size	Simple_TL_Control_1_Count7_1_Enable, .-Simple_TL_Control_1_Count7_1_Enable
+ 113              		.section	.text.Simple_TL_Control_1_Count7_1_Start,"ax",%progbits
+ 114              		.align	2
+ 115              		.global	Simple_TL_Control_1_Count7_1_Start
+ 116              		.code	16
+ 117              		.thumb_func
+ 118              		.type	Simple_TL_Control_1_Count7_1_Start, %function
+ 119              	Simple_TL_Control_1_Count7_1_Start:
+ 120              	.LFB2:
+  83:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  84:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+  85:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+  86:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Function Name: Simple_TL_Control_1_Count7_1_Start
+  87:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+  88:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  89:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Summary:
+  90:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  Performs all of the required initialization for the component and enables
+  91:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  the counter. The first time the routine is executed, the period is set as
+  92:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  configured in the customizer. When called to restart the counter following a
+  93:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  Count7_Stop() call, the current period value is retained.
+  94:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  95:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Parameters:
+  96:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None.
+  97:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+  98:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Global Variables:
+  99:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  Simple_TL_Control_1_Count7_1_initVar - global variable.
+ 100:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 101:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Return:
+ 102:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None.
+ 103:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 104:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+ 105:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** void Simple_TL_Control_1_Count7_1_Start(void) 
+ 106:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** {
+ 121              		.loc 1 106 0
+ 122              		.cfi_startproc
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 5
+
+
+ 123              		@ args = 0, pretend = 0, frame = 0
+ 124              		@ frame_needed = 1, uses_anonymous_args = 0
+ 125 0000 80B5     		push	{r7, lr}
+ 126              		.cfi_def_cfa_offset 8
+ 127              		.cfi_offset 7, -8
+ 128              		.cfi_offset 14, -4
+ 129 0002 00AF     		add	r7, sp, #0
+ 130              		.cfi_def_cfa_register 7
+ 107:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     /* If not initialized then perform initialization */
+ 108:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     if(Simple_TL_Control_1_Count7_1_initVar == 0u)
+ 131              		.loc 1 108 0
+ 132 0004 064B     		ldr	r3, .L9
+ 133 0006 1B78     		ldrb	r3, [r3]
+ 134 0008 002B     		cmp	r3, #0
+ 135 000a 04D1     		bne	.L8
+ 109:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     {
+ 110:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****         Simple_TL_Control_1_Count7_1_Init();
+ 136              		.loc 1 110 0
+ 137 000c FFF7FEFF 		bl	Simple_TL_Control_1_Count7_1_Init
+ 111:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****         Simple_TL_Control_1_Count7_1_initVar = 1u;
+ 138              		.loc 1 111 0
+ 139 0010 034B     		ldr	r3, .L9
+ 140 0012 0122     		movs	r2, #1
+ 141 0014 1A70     		strb	r2, [r3]
+ 142              	.L8:
+ 112:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     }
+ 113:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 114:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     /* Enable Count7 */
+ 115:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     Simple_TL_Control_1_Count7_1_Enable();
+ 143              		.loc 1 115 0
+ 144 0016 FFF7FEFF 		bl	Simple_TL_Control_1_Count7_1_Enable
+ 116:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** }
+ 145              		.loc 1 116 0
+ 146 001a C046     		nop
+ 147 001c BD46     		mov	sp, r7
+ 148              		@ sp needed
+ 149 001e 80BD     		pop	{r7, pc}
+ 150              	.L10:
+ 151              		.align	2
+ 152              	.L9:
+ 153 0020 00000000 		.word	Simple_TL_Control_1_Count7_1_initVar
+ 154              		.cfi_endproc
+ 155              	.LFE2:
+ 156              		.size	Simple_TL_Control_1_Count7_1_Start, .-Simple_TL_Control_1_Count7_1_Start
+ 157              		.section	.text.Simple_TL_Control_1_Count7_1_Stop,"ax",%progbits
+ 158              		.align	2
+ 159              		.global	Simple_TL_Control_1_Count7_1_Stop
+ 160              		.code	16
+ 161              		.thumb_func
+ 162              		.type	Simple_TL_Control_1_Count7_1_Stop, %function
+ 163              	Simple_TL_Control_1_Count7_1_Stop:
+ 164              	.LFB3:
+ 117:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 118:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 119:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+ 120:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Function Name: Simple_TL_Control_1_Count7_1_Stop
+ 121:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 6
+
+
+ 122:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 123:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Summary:
+ 124:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  Disables the software enable of the counter.
+ 125:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 126:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Parameters:
+ 127:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+ 128:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 129:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Return:
+ 130:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+ 131:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 132:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+ 133:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** void Simple_TL_Control_1_Count7_1_Stop(void) 
+ 134:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** {
+ 165              		.loc 1 134 0
+ 166              		.cfi_startproc
+ 167              		@ args = 0, pretend = 0, frame = 8
+ 168              		@ frame_needed = 1, uses_anonymous_args = 0
+ 169 0000 90B5     		push	{r4, r7, lr}
+ 170              		.cfi_def_cfa_offset 12
+ 171              		.cfi_offset 4, -12
+ 172              		.cfi_offset 7, -8
+ 173              		.cfi_offset 14, -4
+ 174 0002 83B0     		sub	sp, sp, #12
+ 175              		.cfi_def_cfa_offset 24
+ 176 0004 00AF     		add	r7, sp, #0
+ 177              		.cfi_def_cfa_register 7
+ 135:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     uint8 interruptState;
+ 136:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 137:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     interruptState = CyEnterCriticalSection();
+ 178              		.loc 1 137 0
+ 179 0006 FC1D     		adds	r4, r7, #7
+ 180 0008 FFF7FEFF 		bl	CyEnterCriticalSection
+ 181 000c 0300     		movs	r3, r0
+ 182 000e 2370     		strb	r3, [r4]
+ 138:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     /* Clear the counter start bit in auxiliary control. */
+ 139:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     Simple_TL_Control_1_Count7_1_AUX_CONTROL_REG &= (uint8) ~((uint8) Simple_TL_Control_1_Count7_1_
+ 183              		.loc 1 139 0
+ 184 0010 084A     		ldr	r2, .L12
+ 185 0012 084B     		ldr	r3, .L12
+ 186 0014 1B78     		ldrb	r3, [r3]
+ 187 0016 DBB2     		uxtb	r3, r3
+ 188 0018 2021     		movs	r1, #32
+ 189 001a 8B43     		bics	r3, r1
+ 190 001c DBB2     		uxtb	r3, r3
+ 191 001e 1370     		strb	r3, [r2]
+ 140:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 141:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     CyExitCriticalSection(interruptState);
+ 192              		.loc 1 141 0
+ 193 0020 FB1D     		adds	r3, r7, #7
+ 194 0022 1B78     		ldrb	r3, [r3]
+ 195 0024 1800     		movs	r0, r3
+ 196 0026 FFF7FEFF 		bl	CyExitCriticalSection
+ 142:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** }
+ 197              		.loc 1 142 0
+ 198 002a C046     		nop
+ 199 002c BD46     		mov	sp, r7
+ 200 002e 03B0     		add	sp, sp, #12
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 7
+
+
+ 201              		@ sp needed
+ 202 0030 90BD     		pop	{r4, r7, pc}
+ 203              	.L13:
+ 204 0032 C046     		.align	2
+ 205              	.L12:
+ 206 0034 93000F40 		.word	1074725011
+ 207              		.cfi_endproc
+ 208              	.LFE3:
+ 209              		.size	Simple_TL_Control_1_Count7_1_Stop, .-Simple_TL_Control_1_Count7_1_Stop
+ 210              		.section	.text.Simple_TL_Control_1_Count7_1_WriteCounter,"ax",%progbits
+ 211              		.align	2
+ 212              		.global	Simple_TL_Control_1_Count7_1_WriteCounter
+ 213              		.code	16
+ 214              		.thumb_func
+ 215              		.type	Simple_TL_Control_1_Count7_1_WriteCounter, %function
+ 216              	Simple_TL_Control_1_Count7_1_WriteCounter:
+ 217              	.LFB4:
+ 143:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 144:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 145:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+ 146:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Function Name: Simple_TL_Control_1_Count7_1_WriteCounter
+ 147:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+ 148:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 149:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Summary:
+ 150:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  This function writes the counter directly. The counter should be disabled
+ 151:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  before calling this function.
+ 152:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 153:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Parameters:
+ 154:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  count - Value to be written to counter.
+ 155:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 156:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Return:
+ 157:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+ 158:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 159:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+ 160:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** void Simple_TL_Control_1_Count7_1_WriteCounter(uint8 count) 
+ 161:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** {
+ 218              		.loc 1 161 0
+ 219              		.cfi_startproc
+ 220              		@ args = 0, pretend = 0, frame = 8
+ 221              		@ frame_needed = 1, uses_anonymous_args = 0
+ 222 0000 80B5     		push	{r7, lr}
+ 223              		.cfi_def_cfa_offset 8
+ 224              		.cfi_offset 7, -8
+ 225              		.cfi_offset 14, -4
+ 226 0002 82B0     		sub	sp, sp, #8
+ 227              		.cfi_def_cfa_offset 16
+ 228 0004 00AF     		add	r7, sp, #0
+ 229              		.cfi_def_cfa_register 7
+ 230 0006 0200     		movs	r2, r0
+ 231 0008 FB1D     		adds	r3, r7, #7
+ 232 000a 1A70     		strb	r2, [r3]
+ 162:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     Simple_TL_Control_1_Count7_1_COUNT_REG = (count & Simple_TL_Control_1_Count7_1_COUNT_7BIT_MASK)
+ 233              		.loc 1 162 0
+ 234 000c 054A     		ldr	r2, .L15
+ 235 000e FB1D     		adds	r3, r7, #7
+ 236 0010 1B78     		ldrb	r3, [r3]
+ 237 0012 7F21     		movs	r1, #127
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 8
+
+
+ 238 0014 0B40     		ands	r3, r1
+ 239 0016 DBB2     		uxtb	r3, r3
+ 240 0018 1370     		strb	r3, [r2]
+ 163:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** }
+ 241              		.loc 1 163 0
+ 242 001a C046     		nop
+ 243 001c BD46     		mov	sp, r7
+ 244 001e 02B0     		add	sp, sp, #8
+ 245              		@ sp needed
+ 246 0020 80BD     		pop	{r7, pc}
+ 247              	.L16:
+ 248 0022 C046     		.align	2
+ 249              	.L15:
+ 250 0024 73000F40 		.word	1074724979
+ 251              		.cfi_endproc
+ 252              	.LFE4:
+ 253              		.size	Simple_TL_Control_1_Count7_1_WriteCounter, .-Simple_TL_Control_1_Count7_1_WriteCounter
+ 254              		.section	.text.Simple_TL_Control_1_Count7_1_ReadCounter,"ax",%progbits
+ 255              		.align	2
+ 256              		.global	Simple_TL_Control_1_Count7_1_ReadCounter
+ 257              		.code	16
+ 258              		.thumb_func
+ 259              		.type	Simple_TL_Control_1_Count7_1_ReadCounter, %function
+ 260              	Simple_TL_Control_1_Count7_1_ReadCounter:
+ 261              	.LFB5:
+ 164:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 165:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 166:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+ 167:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Function Name: Simple_TL_Control_1_Count7_1_ReadCounter
+ 168:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+ 169:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 170:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Summary:
+ 171:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  This function reads the counter value.
+ 172:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 173:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Parameters:
+ 174:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+ 175:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 176:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Return:
+ 177:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+ 178:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 179:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+ 180:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** uint8 Simple_TL_Control_1_Count7_1_ReadCounter(void) 
+ 181:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** {
+ 262              		.loc 1 181 0
+ 263              		.cfi_startproc
+ 264              		@ args = 0, pretend = 0, frame = 0
+ 265              		@ frame_needed = 1, uses_anonymous_args = 0
+ 266 0000 80B5     		push	{r7, lr}
+ 267              		.cfi_def_cfa_offset 8
+ 268              		.cfi_offset 7, -8
+ 269              		.cfi_offset 14, -4
+ 270 0002 00AF     		add	r7, sp, #0
+ 271              		.cfi_def_cfa_register 7
+ 182:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     return(Simple_TL_Control_1_Count7_1_COUNT_REG & Simple_TL_Control_1_Count7_1_COUNT_7BIT_MASK);
+ 272              		.loc 1 182 0
+ 273 0004 044B     		ldr	r3, .L19
+ 274 0006 1B78     		ldrb	r3, [r3]
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 9
+
+
+ 275 0008 DBB2     		uxtb	r3, r3
+ 276 000a 7F22     		movs	r2, #127
+ 277 000c 1340     		ands	r3, r2
+ 278 000e DBB2     		uxtb	r3, r3
+ 183:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** }
+ 279              		.loc 1 183 0
+ 280 0010 1800     		movs	r0, r3
+ 281 0012 BD46     		mov	sp, r7
+ 282              		@ sp needed
+ 283 0014 80BD     		pop	{r7, pc}
+ 284              	.L20:
+ 285 0016 C046     		.align	2
+ 286              	.L19:
+ 287 0018 73000F40 		.word	1074724979
+ 288              		.cfi_endproc
+ 289              	.LFE5:
+ 290              		.size	Simple_TL_Control_1_Count7_1_ReadCounter, .-Simple_TL_Control_1_Count7_1_ReadCounter
+ 291              		.section	.text.Simple_TL_Control_1_Count7_1_WritePeriod,"ax",%progbits
+ 292              		.align	2
+ 293              		.global	Simple_TL_Control_1_Count7_1_WritePeriod
+ 294              		.code	16
+ 295              		.thumb_func
+ 296              		.type	Simple_TL_Control_1_Count7_1_WritePeriod, %function
+ 297              	Simple_TL_Control_1_Count7_1_WritePeriod:
+ 298              	.LFB6:
+ 184:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 185:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 186:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+ 187:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Function Name: Simple_TL_Control_1_Count7_1_WritePeriod
+ 188:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+ 189:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 190:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Summary:
+ 191:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  This function writes the period register. The actual period is one greater
+ 192:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  than the value in the period register since the counting sequence starts
+ 193:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  with the period register and counts down to 0 inclusive. The period of the
+ 194:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  counter output does not change until the counter is reloaded following the
+ 195:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  terminal count value of 0 or due to a hardware load signal.
+ 196:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 197:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Parameters:
+ 198:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  period - Period value to be written.
+ 199:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 200:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Return:
+ 201:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+ 202:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 203:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+ 204:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** void Simple_TL_Control_1_Count7_1_WritePeriod(uint8 period) 
+ 205:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** {
+ 299              		.loc 1 205 0
+ 300              		.cfi_startproc
+ 301              		@ args = 0, pretend = 0, frame = 8
+ 302              		@ frame_needed = 1, uses_anonymous_args = 0
+ 303 0000 80B5     		push	{r7, lr}
+ 304              		.cfi_def_cfa_offset 8
+ 305              		.cfi_offset 7, -8
+ 306              		.cfi_offset 14, -4
+ 307 0002 82B0     		sub	sp, sp, #8
+ 308              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 10
+
+
+ 309 0004 00AF     		add	r7, sp, #0
+ 310              		.cfi_def_cfa_register 7
+ 311 0006 0200     		movs	r2, r0
+ 312 0008 FB1D     		adds	r3, r7, #7
+ 313 000a 1A70     		strb	r2, [r3]
+ 206:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     Simple_TL_Control_1_Count7_1_PERIOD_REG = period;
+ 314              		.loc 1 206 0
+ 315 000c 034A     		ldr	r2, .L22
+ 316 000e FB1D     		adds	r3, r7, #7
+ 317 0010 1B78     		ldrb	r3, [r3]
+ 318 0012 1370     		strb	r3, [r2]
+ 207:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** }
+ 319              		.loc 1 207 0
+ 320 0014 C046     		nop
+ 321 0016 BD46     		mov	sp, r7
+ 322 0018 02B0     		add	sp, sp, #8
+ 323              		@ sp needed
+ 324 001a 80BD     		pop	{r7, pc}
+ 325              	.L23:
+ 326              		.align	2
+ 327              	.L22:
+ 328 001c 83000F40 		.word	1074724995
+ 329              		.cfi_endproc
+ 330              	.LFE6:
+ 331              		.size	Simple_TL_Control_1_Count7_1_WritePeriod, .-Simple_TL_Control_1_Count7_1_WritePeriod
+ 332              		.section	.text.Simple_TL_Control_1_Count7_1_ReadPeriod,"ax",%progbits
+ 333              		.align	2
+ 334              		.global	Simple_TL_Control_1_Count7_1_ReadPeriod
+ 335              		.code	16
+ 336              		.thumb_func
+ 337              		.type	Simple_TL_Control_1_Count7_1_ReadPeriod, %function
+ 338              	Simple_TL_Control_1_Count7_1_ReadPeriod:
+ 339              	.LFB7:
+ 208:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 209:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** 
+ 210:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** /*******************************************************************************
+ 211:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Function Name: Simple_TL_Control_1_Count7_1_ReadPeriod
+ 212:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** ********************************************************************************
+ 213:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 214:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Summary:
+ 215:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  This function reads the period register.
+ 216:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 217:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Parameters:
+ 218:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  None
+ 219:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 220:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** * Return:
+ 221:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *  uint8 - Current period value.
+ 222:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *
+ 223:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** *******************************************************************************/
+ 224:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** uint8 Simple_TL_Control_1_Count7_1_ReadPeriod(void) 
+ 225:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** {
+ 340              		.loc 1 225 0
+ 341              		.cfi_startproc
+ 342              		@ args = 0, pretend = 0, frame = 0
+ 343              		@ frame_needed = 1, uses_anonymous_args = 0
+ 344 0000 80B5     		push	{r7, lr}
+ 345              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 11
+
+
+ 346              		.cfi_offset 7, -8
+ 347              		.cfi_offset 14, -4
+ 348 0002 00AF     		add	r7, sp, #0
+ 349              		.cfi_def_cfa_register 7
+ 226:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c ****     return(Simple_TL_Control_1_Count7_1_PERIOD_REG);
+ 350              		.loc 1 226 0
+ 351 0004 024B     		ldr	r3, .L26
+ 352 0006 1B78     		ldrb	r3, [r3]
+ 353 0008 DBB2     		uxtb	r3, r3
+ 227:Generated_Source\PSoC4/Simple_TL_Control_1_Count7_1.c **** }
+ 354              		.loc 1 227 0
+ 355 000a 1800     		movs	r0, r3
+ 356 000c BD46     		mov	sp, r7
+ 357              		@ sp needed
+ 358 000e 80BD     		pop	{r7, pc}
+ 359              	.L27:
+ 360              		.align	2
+ 361              	.L26:
+ 362 0010 83000F40 		.word	1074724995
+ 363              		.cfi_endproc
+ 364              	.LFE7:
+ 365              		.size	Simple_TL_Control_1_Count7_1_ReadPeriod, .-Simple_TL_Control_1_Count7_1_ReadPeriod
+ 366              		.text
+ 367              	.Letext0:
+ 368              		.file 2 "Generated_Source\\PSoC4\\cytypes.h"
+ 369              		.section	.debug_info,"",%progbits
+ 370              	.Ldebug_info0:
+ 371 0000 95010000 		.4byte	0x195
+ 372 0004 0400     		.2byte	0x4
+ 373 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 374 000a 04       		.byte	0x4
+ 375 000b 01       		.uleb128 0x1
+ 376 000c 2E010000 		.4byte	.LASF27
+ 377 0010 0C       		.byte	0xc
+ 378 0011 30000000 		.4byte	.LASF28
+ 379 0015 B6020000 		.4byte	.LASF29
+ 380 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 381 001d 00000000 		.4byte	0
+ 382 0021 00000000 		.4byte	.Ldebug_line0
+ 383 0025 02       		.uleb128 0x2
+ 384 0026 01       		.byte	0x1
+ 385 0027 06       		.byte	0x6
+ 386 0028 0A030000 		.4byte	.LASF0
+ 387 002c 02       		.uleb128 0x2
+ 388 002d 01       		.byte	0x1
+ 389 002e 08       		.byte	0x8
+ 390 002f CB000000 		.4byte	.LASF1
+ 391 0033 02       		.uleb128 0x2
+ 392 0034 02       		.byte	0x2
+ 393 0035 05       		.byte	0x5
+ 394 0036 97020000 		.4byte	.LASF2
+ 395 003a 02       		.uleb128 0x2
+ 396 003b 02       		.byte	0x2
+ 397 003c 07       		.byte	0x7
+ 398 003d 6D000000 		.4byte	.LASF3
+ 399 0041 02       		.uleb128 0x2
+ 400 0042 04       		.byte	0x4
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 12
+
+
+ 401 0043 05       		.byte	0x5
+ 402 0044 A1020000 		.4byte	.LASF4
+ 403 0048 02       		.uleb128 0x2
+ 404 0049 04       		.byte	0x4
+ 405 004a 07       		.byte	0x7
+ 406 004b ED000000 		.4byte	.LASF5
+ 407 004f 02       		.uleb128 0x2
+ 408 0050 08       		.byte	0x8
+ 409 0051 05       		.byte	0x5
+ 410 0052 84020000 		.4byte	.LASF6
+ 411 0056 02       		.uleb128 0x2
+ 412 0057 08       		.byte	0x8
+ 413 0058 07       		.byte	0x7
+ 414 0059 40020000 		.4byte	.LASF7
+ 415 005d 03       		.uleb128 0x3
+ 416 005e 04       		.byte	0x4
+ 417 005f 05       		.byte	0x5
+ 418 0060 696E7400 		.ascii	"int\000"
+ 419 0064 02       		.uleb128 0x2
+ 420 0065 04       		.byte	0x4
+ 421 0066 07       		.byte	0x7
+ 422 0067 0A020000 		.4byte	.LASF8
+ 423 006b 04       		.uleb128 0x4
+ 424 006c FF000000 		.4byte	.LASF12
+ 425 0070 02       		.byte	0x2
+ 426 0071 E701     		.2byte	0x1e7
+ 427 0073 2C000000 		.4byte	0x2c
+ 428 0077 02       		.uleb128 0x2
+ 429 0078 04       		.byte	0x4
+ 430 0079 04       		.byte	0x4
+ 431 007a C5000000 		.4byte	.LASF9
+ 432 007e 02       		.uleb128 0x2
+ 433 007f 08       		.byte	0x8
+ 434 0080 04       		.byte	0x4
+ 435 0081 E1010000 		.4byte	.LASF10
+ 436 0085 02       		.uleb128 0x2
+ 437 0086 01       		.byte	0x1
+ 438 0087 08       		.byte	0x8
+ 439 0088 92020000 		.4byte	.LASF11
+ 440 008c 04       		.uleb128 0x4
+ 441 008d D9000000 		.4byte	.LASF13
+ 442 0091 02       		.byte	0x2
+ 443 0092 9102     		.2byte	0x291
+ 444 0094 98000000 		.4byte	0x98
+ 445 0098 05       		.uleb128 0x5
+ 446 0099 6B000000 		.4byte	0x6b
+ 447 009d 02       		.uleb128 0x2
+ 448 009e 08       		.byte	0x8
+ 449 009f 04       		.byte	0x4
+ 450 00a0 AA020000 		.4byte	.LASF14
+ 451 00a4 02       		.uleb128 0x2
+ 452 00a5 04       		.byte	0x4
+ 453 00a6 07       		.byte	0x7
+ 454 00a7 7B020000 		.4byte	.LASF15
+ 455 00ab 06       		.uleb128 0x6
+ 456 00ac A3000000 		.4byte	.LASF16
+ 457 00b0 01       		.byte	0x1
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 13
+
+
+ 458 00b1 2A       		.byte	0x2a
+ 459 00b2 00000000 		.4byte	.LFB0
+ 460 00b6 14000000 		.4byte	.LFE0-.LFB0
+ 461 00ba 01       		.uleb128 0x1
+ 462 00bb 9C       		.byte	0x9c
+ 463 00bc 07       		.uleb128 0x7
+ 464 00bd 57020000 		.4byte	.LASF18
+ 465 00c1 01       		.byte	0x1
+ 466 00c2 47       		.byte	0x47
+ 467 00c3 00000000 		.4byte	.LFB1
+ 468 00c7 38000000 		.4byte	.LFE1-.LFB1
+ 469 00cb 01       		.uleb128 0x1
+ 470 00cc 9C       		.byte	0x9c
+ 471 00cd E0000000 		.4byte	0xe0
+ 472 00d1 08       		.uleb128 0x8
+ 473 00d2 DE000000 		.4byte	.LASF20
+ 474 00d6 01       		.byte	0x1
+ 475 00d7 49       		.byte	0x49
+ 476 00d8 6B000000 		.4byte	0x6b
+ 477 00dc 02       		.uleb128 0x2
+ 478 00dd 91       		.byte	0x91
+ 479 00de 6F       		.sleb128 -17
+ 480 00df 00       		.byte	0
+ 481 00e0 09       		.uleb128 0x9
+ 482 00e1 80000000 		.4byte	.LASF17
+ 483 00e5 01       		.byte	0x1
+ 484 00e6 69       		.byte	0x69
+ 485 00e7 00000000 		.4byte	.LFB2
+ 486 00eb 24000000 		.4byte	.LFE2-.LFB2
+ 487 00ef 01       		.uleb128 0x1
+ 488 00f0 9C       		.byte	0x9c
+ 489 00f1 07       		.uleb128 0x7
+ 490 00f2 E8010000 		.4byte	.LASF19
+ 491 00f6 01       		.byte	0x1
+ 492 00f7 85       		.byte	0x85
+ 493 00f8 00000000 		.4byte	.LFB3
+ 494 00fc 38000000 		.4byte	.LFE3-.LFB3
+ 495 0100 01       		.uleb128 0x1
+ 496 0101 9C       		.byte	0x9c
+ 497 0102 15010000 		.4byte	0x115
+ 498 0106 08       		.uleb128 0x8
+ 499 0107 DE000000 		.4byte	.LASF20
+ 500 010b 01       		.byte	0x1
+ 501 010c 87       		.byte	0x87
+ 502 010d 6B000000 		.4byte	0x6b
+ 503 0111 02       		.uleb128 0x2
+ 504 0112 91       		.byte	0x91
+ 505 0113 6F       		.sleb128 -17
+ 506 0114 00       		.byte	0
+ 507 0115 0A       		.uleb128 0xa
+ 508 0116 00000000 		.4byte	.LASF21
+ 509 011a 01       		.byte	0x1
+ 510 011b A0       		.byte	0xa0
+ 511 011c 00000000 		.4byte	.LFB4
+ 512 0120 28000000 		.4byte	.LFE4-.LFB4
+ 513 0124 01       		.uleb128 0x1
+ 514 0125 9C       		.byte	0x9c
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 14
+
+
+ 515 0126 39010000 		.4byte	0x139
+ 516 012a 0B       		.uleb128 0xb
+ 517 012b 2A000000 		.4byte	.LASF23
+ 518 012f 01       		.byte	0x1
+ 519 0130 A0       		.byte	0xa0
+ 520 0131 6B000000 		.4byte	0x6b
+ 521 0135 02       		.uleb128 0x2
+ 522 0136 91       		.byte	0x91
+ 523 0137 77       		.sleb128 -9
+ 524 0138 00       		.byte	0
+ 525 0139 0C       		.uleb128 0xc
+ 526 013a 05010000 		.4byte	.LASF25
+ 527 013e 01       		.byte	0x1
+ 528 013f B4       		.byte	0xb4
+ 529 0140 6B000000 		.4byte	0x6b
+ 530 0144 00000000 		.4byte	.LFB5
+ 531 0148 1C000000 		.4byte	.LFE5-.LFB5
+ 532 014c 01       		.uleb128 0x1
+ 533 014d 9C       		.byte	0x9c
+ 534 014e 0A       		.uleb128 0xa
+ 535 014f 17020000 		.4byte	.LASF22
+ 536 0153 01       		.byte	0x1
+ 537 0154 CC       		.byte	0xcc
+ 538 0155 00000000 		.4byte	.LFB6
+ 539 0159 20000000 		.4byte	.LFE6-.LFB6
+ 540 015d 01       		.uleb128 0x1
+ 541 015e 9C       		.byte	0x9c
+ 542 015f 72010000 		.4byte	0x172
+ 543 0163 0B       		.uleb128 0xb
+ 544 0164 66000000 		.4byte	.LASF24
+ 545 0168 01       		.byte	0x1
+ 546 0169 CC       		.byte	0xcc
+ 547 016a 6B000000 		.4byte	0x6b
+ 548 016e 02       		.uleb128 0x2
+ 549 016f 91       		.byte	0x91
+ 550 0170 77       		.sleb128 -9
+ 551 0171 00       		.byte	0
+ 552 0172 0C       		.uleb128 0xc
+ 553 0173 16030000 		.4byte	.LASF26
+ 554 0177 01       		.byte	0x1
+ 555 0178 E0       		.byte	0xe0
+ 556 0179 6B000000 		.4byte	0x6b
+ 557 017d 00000000 		.4byte	.LFB7
+ 558 0181 14000000 		.4byte	.LFE7-.LFB7
+ 559 0185 01       		.uleb128 0x1
+ 560 0186 9C       		.byte	0x9c
+ 561 0187 0D       		.uleb128 0xd
+ 562 0188 BC010000 		.4byte	.LASF30
+ 563 018c 01       		.byte	0x1
+ 564 018d 13       		.byte	0x13
+ 565 018e 6B000000 		.4byte	0x6b
+ 566 0192 05       		.uleb128 0x5
+ 567 0193 03       		.byte	0x3
+ 568 0194 00000000 		.4byte	Simple_TL_Control_1_Count7_1_initVar
+ 569 0198 00       		.byte	0
+ 570              		.section	.debug_abbrev,"",%progbits
+ 571              	.Ldebug_abbrev0:
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 15
+
+
+ 572 0000 01       		.uleb128 0x1
+ 573 0001 11       		.uleb128 0x11
+ 574 0002 01       		.byte	0x1
+ 575 0003 25       		.uleb128 0x25
+ 576 0004 0E       		.uleb128 0xe
+ 577 0005 13       		.uleb128 0x13
+ 578 0006 0B       		.uleb128 0xb
+ 579 0007 03       		.uleb128 0x3
+ 580 0008 0E       		.uleb128 0xe
+ 581 0009 1B       		.uleb128 0x1b
+ 582 000a 0E       		.uleb128 0xe
+ 583 000b 55       		.uleb128 0x55
+ 584 000c 17       		.uleb128 0x17
+ 585 000d 11       		.uleb128 0x11
+ 586 000e 01       		.uleb128 0x1
+ 587 000f 10       		.uleb128 0x10
+ 588 0010 17       		.uleb128 0x17
+ 589 0011 00       		.byte	0
+ 590 0012 00       		.byte	0
+ 591 0013 02       		.uleb128 0x2
+ 592 0014 24       		.uleb128 0x24
+ 593 0015 00       		.byte	0
+ 594 0016 0B       		.uleb128 0xb
+ 595 0017 0B       		.uleb128 0xb
+ 596 0018 3E       		.uleb128 0x3e
+ 597 0019 0B       		.uleb128 0xb
+ 598 001a 03       		.uleb128 0x3
+ 599 001b 0E       		.uleb128 0xe
+ 600 001c 00       		.byte	0
+ 601 001d 00       		.byte	0
+ 602 001e 03       		.uleb128 0x3
+ 603 001f 24       		.uleb128 0x24
+ 604 0020 00       		.byte	0
+ 605 0021 0B       		.uleb128 0xb
+ 606 0022 0B       		.uleb128 0xb
+ 607 0023 3E       		.uleb128 0x3e
+ 608 0024 0B       		.uleb128 0xb
+ 609 0025 03       		.uleb128 0x3
+ 610 0026 08       		.uleb128 0x8
+ 611 0027 00       		.byte	0
+ 612 0028 00       		.byte	0
+ 613 0029 04       		.uleb128 0x4
+ 614 002a 16       		.uleb128 0x16
+ 615 002b 00       		.byte	0
+ 616 002c 03       		.uleb128 0x3
+ 617 002d 0E       		.uleb128 0xe
+ 618 002e 3A       		.uleb128 0x3a
+ 619 002f 0B       		.uleb128 0xb
+ 620 0030 3B       		.uleb128 0x3b
+ 621 0031 05       		.uleb128 0x5
+ 622 0032 49       		.uleb128 0x49
+ 623 0033 13       		.uleb128 0x13
+ 624 0034 00       		.byte	0
+ 625 0035 00       		.byte	0
+ 626 0036 05       		.uleb128 0x5
+ 627 0037 35       		.uleb128 0x35
+ 628 0038 00       		.byte	0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 16
+
+
+ 629 0039 49       		.uleb128 0x49
+ 630 003a 13       		.uleb128 0x13
+ 631 003b 00       		.byte	0
+ 632 003c 00       		.byte	0
+ 633 003d 06       		.uleb128 0x6
+ 634 003e 2E       		.uleb128 0x2e
+ 635 003f 00       		.byte	0
+ 636 0040 3F       		.uleb128 0x3f
+ 637 0041 19       		.uleb128 0x19
+ 638 0042 03       		.uleb128 0x3
+ 639 0043 0E       		.uleb128 0xe
+ 640 0044 3A       		.uleb128 0x3a
+ 641 0045 0B       		.uleb128 0xb
+ 642 0046 3B       		.uleb128 0x3b
+ 643 0047 0B       		.uleb128 0xb
+ 644 0048 27       		.uleb128 0x27
+ 645 0049 19       		.uleb128 0x19
+ 646 004a 11       		.uleb128 0x11
+ 647 004b 01       		.uleb128 0x1
+ 648 004c 12       		.uleb128 0x12
+ 649 004d 06       		.uleb128 0x6
+ 650 004e 40       		.uleb128 0x40
+ 651 004f 18       		.uleb128 0x18
+ 652 0050 9742     		.uleb128 0x2117
+ 653 0052 19       		.uleb128 0x19
+ 654 0053 00       		.byte	0
+ 655 0054 00       		.byte	0
+ 656 0055 07       		.uleb128 0x7
+ 657 0056 2E       		.uleb128 0x2e
+ 658 0057 01       		.byte	0x1
+ 659 0058 3F       		.uleb128 0x3f
+ 660 0059 19       		.uleb128 0x19
+ 661 005a 03       		.uleb128 0x3
+ 662 005b 0E       		.uleb128 0xe
+ 663 005c 3A       		.uleb128 0x3a
+ 664 005d 0B       		.uleb128 0xb
+ 665 005e 3B       		.uleb128 0x3b
+ 666 005f 0B       		.uleb128 0xb
+ 667 0060 27       		.uleb128 0x27
+ 668 0061 19       		.uleb128 0x19
+ 669 0062 11       		.uleb128 0x11
+ 670 0063 01       		.uleb128 0x1
+ 671 0064 12       		.uleb128 0x12
+ 672 0065 06       		.uleb128 0x6
+ 673 0066 40       		.uleb128 0x40
+ 674 0067 18       		.uleb128 0x18
+ 675 0068 9642     		.uleb128 0x2116
+ 676 006a 19       		.uleb128 0x19
+ 677 006b 01       		.uleb128 0x1
+ 678 006c 13       		.uleb128 0x13
+ 679 006d 00       		.byte	0
+ 680 006e 00       		.byte	0
+ 681 006f 08       		.uleb128 0x8
+ 682 0070 34       		.uleb128 0x34
+ 683 0071 00       		.byte	0
+ 684 0072 03       		.uleb128 0x3
+ 685 0073 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 17
+
+
+ 686 0074 3A       		.uleb128 0x3a
+ 687 0075 0B       		.uleb128 0xb
+ 688 0076 3B       		.uleb128 0x3b
+ 689 0077 0B       		.uleb128 0xb
+ 690 0078 49       		.uleb128 0x49
+ 691 0079 13       		.uleb128 0x13
+ 692 007a 02       		.uleb128 0x2
+ 693 007b 18       		.uleb128 0x18
+ 694 007c 00       		.byte	0
+ 695 007d 00       		.byte	0
+ 696 007e 09       		.uleb128 0x9
+ 697 007f 2E       		.uleb128 0x2e
+ 698 0080 00       		.byte	0
+ 699 0081 3F       		.uleb128 0x3f
+ 700 0082 19       		.uleb128 0x19
+ 701 0083 03       		.uleb128 0x3
+ 702 0084 0E       		.uleb128 0xe
+ 703 0085 3A       		.uleb128 0x3a
+ 704 0086 0B       		.uleb128 0xb
+ 705 0087 3B       		.uleb128 0x3b
+ 706 0088 0B       		.uleb128 0xb
+ 707 0089 27       		.uleb128 0x27
+ 708 008a 19       		.uleb128 0x19
+ 709 008b 11       		.uleb128 0x11
+ 710 008c 01       		.uleb128 0x1
+ 711 008d 12       		.uleb128 0x12
+ 712 008e 06       		.uleb128 0x6
+ 713 008f 40       		.uleb128 0x40
+ 714 0090 18       		.uleb128 0x18
+ 715 0091 9642     		.uleb128 0x2116
+ 716 0093 19       		.uleb128 0x19
+ 717 0094 00       		.byte	0
+ 718 0095 00       		.byte	0
+ 719 0096 0A       		.uleb128 0xa
+ 720 0097 2E       		.uleb128 0x2e
+ 721 0098 01       		.byte	0x1
+ 722 0099 3F       		.uleb128 0x3f
+ 723 009a 19       		.uleb128 0x19
+ 724 009b 03       		.uleb128 0x3
+ 725 009c 0E       		.uleb128 0xe
+ 726 009d 3A       		.uleb128 0x3a
+ 727 009e 0B       		.uleb128 0xb
+ 728 009f 3B       		.uleb128 0x3b
+ 729 00a0 0B       		.uleb128 0xb
+ 730 00a1 27       		.uleb128 0x27
+ 731 00a2 19       		.uleb128 0x19
+ 732 00a3 11       		.uleb128 0x11
+ 733 00a4 01       		.uleb128 0x1
+ 734 00a5 12       		.uleb128 0x12
+ 735 00a6 06       		.uleb128 0x6
+ 736 00a7 40       		.uleb128 0x40
+ 737 00a8 18       		.uleb128 0x18
+ 738 00a9 9742     		.uleb128 0x2117
+ 739 00ab 19       		.uleb128 0x19
+ 740 00ac 01       		.uleb128 0x1
+ 741 00ad 13       		.uleb128 0x13
+ 742 00ae 00       		.byte	0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 18
+
+
+ 743 00af 00       		.byte	0
+ 744 00b0 0B       		.uleb128 0xb
+ 745 00b1 05       		.uleb128 0x5
+ 746 00b2 00       		.byte	0
+ 747 00b3 03       		.uleb128 0x3
+ 748 00b4 0E       		.uleb128 0xe
+ 749 00b5 3A       		.uleb128 0x3a
+ 750 00b6 0B       		.uleb128 0xb
+ 751 00b7 3B       		.uleb128 0x3b
+ 752 00b8 0B       		.uleb128 0xb
+ 753 00b9 49       		.uleb128 0x49
+ 754 00ba 13       		.uleb128 0x13
+ 755 00bb 02       		.uleb128 0x2
+ 756 00bc 18       		.uleb128 0x18
+ 757 00bd 00       		.byte	0
+ 758 00be 00       		.byte	0
+ 759 00bf 0C       		.uleb128 0xc
+ 760 00c0 2E       		.uleb128 0x2e
+ 761 00c1 00       		.byte	0
+ 762 00c2 3F       		.uleb128 0x3f
+ 763 00c3 19       		.uleb128 0x19
+ 764 00c4 03       		.uleb128 0x3
+ 765 00c5 0E       		.uleb128 0xe
+ 766 00c6 3A       		.uleb128 0x3a
+ 767 00c7 0B       		.uleb128 0xb
+ 768 00c8 3B       		.uleb128 0x3b
+ 769 00c9 0B       		.uleb128 0xb
+ 770 00ca 27       		.uleb128 0x27
+ 771 00cb 19       		.uleb128 0x19
+ 772 00cc 49       		.uleb128 0x49
+ 773 00cd 13       		.uleb128 0x13
+ 774 00ce 11       		.uleb128 0x11
+ 775 00cf 01       		.uleb128 0x1
+ 776 00d0 12       		.uleb128 0x12
+ 777 00d1 06       		.uleb128 0x6
+ 778 00d2 40       		.uleb128 0x40
+ 779 00d3 18       		.uleb128 0x18
+ 780 00d4 9742     		.uleb128 0x2117
+ 781 00d6 19       		.uleb128 0x19
+ 782 00d7 00       		.byte	0
+ 783 00d8 00       		.byte	0
+ 784 00d9 0D       		.uleb128 0xd
+ 785 00da 34       		.uleb128 0x34
+ 786 00db 00       		.byte	0
+ 787 00dc 03       		.uleb128 0x3
+ 788 00dd 0E       		.uleb128 0xe
+ 789 00de 3A       		.uleb128 0x3a
+ 790 00df 0B       		.uleb128 0xb
+ 791 00e0 3B       		.uleb128 0x3b
+ 792 00e1 0B       		.uleb128 0xb
+ 793 00e2 49       		.uleb128 0x49
+ 794 00e3 13       		.uleb128 0x13
+ 795 00e4 3F       		.uleb128 0x3f
+ 796 00e5 19       		.uleb128 0x19
+ 797 00e6 02       		.uleb128 0x2
+ 798 00e7 18       		.uleb128 0x18
+ 799 00e8 00       		.byte	0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 19
+
+
+ 800 00e9 00       		.byte	0
+ 801 00ea 00       		.byte	0
+ 802              		.section	.debug_aranges,"",%progbits
+ 803 0000 54000000 		.4byte	0x54
+ 804 0004 0200     		.2byte	0x2
+ 805 0006 00000000 		.4byte	.Ldebug_info0
+ 806 000a 04       		.byte	0x4
+ 807 000b 00       		.byte	0
+ 808 000c 0000     		.2byte	0
+ 809 000e 0000     		.2byte	0
+ 810 0010 00000000 		.4byte	.LFB0
+ 811 0014 14000000 		.4byte	.LFE0-.LFB0
+ 812 0018 00000000 		.4byte	.LFB1
+ 813 001c 38000000 		.4byte	.LFE1-.LFB1
+ 814 0020 00000000 		.4byte	.LFB2
+ 815 0024 24000000 		.4byte	.LFE2-.LFB2
+ 816 0028 00000000 		.4byte	.LFB3
+ 817 002c 38000000 		.4byte	.LFE3-.LFB3
+ 818 0030 00000000 		.4byte	.LFB4
+ 819 0034 28000000 		.4byte	.LFE4-.LFB4
+ 820 0038 00000000 		.4byte	.LFB5
+ 821 003c 1C000000 		.4byte	.LFE5-.LFB5
+ 822 0040 00000000 		.4byte	.LFB6
+ 823 0044 20000000 		.4byte	.LFE6-.LFB6
+ 824 0048 00000000 		.4byte	.LFB7
+ 825 004c 14000000 		.4byte	.LFE7-.LFB7
+ 826 0050 00000000 		.4byte	0
+ 827 0054 00000000 		.4byte	0
+ 828              		.section	.debug_ranges,"",%progbits
+ 829              	.Ldebug_ranges0:
+ 830 0000 00000000 		.4byte	.LFB0
+ 831 0004 14000000 		.4byte	.LFE0
+ 832 0008 00000000 		.4byte	.LFB1
+ 833 000c 38000000 		.4byte	.LFE1
+ 834 0010 00000000 		.4byte	.LFB2
+ 835 0014 24000000 		.4byte	.LFE2
+ 836 0018 00000000 		.4byte	.LFB3
+ 837 001c 38000000 		.4byte	.LFE3
+ 838 0020 00000000 		.4byte	.LFB4
+ 839 0024 28000000 		.4byte	.LFE4
+ 840 0028 00000000 		.4byte	.LFB5
+ 841 002c 1C000000 		.4byte	.LFE5
+ 842 0030 00000000 		.4byte	.LFB6
+ 843 0034 20000000 		.4byte	.LFE6
+ 844 0038 00000000 		.4byte	.LFB7
+ 845 003c 14000000 		.4byte	.LFE7
+ 846 0040 00000000 		.4byte	0
+ 847 0044 00000000 		.4byte	0
+ 848              		.section	.debug_line,"",%progbits
+ 849              	.Ldebug_line0:
+ 850 0000 F5000000 		.section	.debug_str,"MS",%progbits,1
+ 850      02005900 
+ 850      00000201 
+ 850      FB0E0D00 
+ 850      01010101 
+ 851              	.LASF21:
+ 852 0000 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_WriteCounter\000"
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 20
+
+
+ 852      6C655F54 
+ 852      4C5F436F 
+ 852      6E74726F 
+ 852      6C5F315F 
+ 853              	.LASF23:
+ 854 002a 636F756E 		.ascii	"count\000"
+ 854      7400
+ 855              	.LASF28:
+ 856 0030 47656E65 		.ascii	"Generated_Source\\PSoC4\\Simple_TL_Control_1_Count7"
+ 856      72617465 
+ 856      645F536F 
+ 856      75726365 
+ 856      5C50536F 
+ 857 0061 5F312E63 		.ascii	"_1.c\000"
+ 857      00
+ 858              	.LASF24:
+ 859 0066 70657269 		.ascii	"period\000"
+ 859      6F6400
+ 860              	.LASF3:
+ 861 006d 73686F72 		.ascii	"short unsigned int\000"
+ 861      7420756E 
+ 861      7369676E 
+ 861      65642069 
+ 861      6E7400
+ 862              	.LASF17:
+ 863 0080 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_Start\000"
+ 863      6C655F54 
+ 863      4C5F436F 
+ 863      6E74726F 
+ 863      6C5F315F 
+ 864              	.LASF16:
+ 865 00a3 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_Init\000"
+ 865      6C655F54 
+ 865      4C5F436F 
+ 865      6E74726F 
+ 865      6C5F315F 
+ 866              	.LASF9:
+ 867 00c5 666C6F61 		.ascii	"float\000"
+ 867      7400
+ 868              	.LASF1:
+ 869 00cb 756E7369 		.ascii	"unsigned char\000"
+ 869      676E6564 
+ 869      20636861 
+ 869      7200
+ 870              	.LASF13:
+ 871 00d9 72656738 		.ascii	"reg8\000"
+ 871      00
+ 872              	.LASF20:
+ 873 00de 696E7465 		.ascii	"interruptState\000"
+ 873      72727570 
+ 873      74537461 
+ 873      746500
+ 874              	.LASF5:
+ 875 00ed 6C6F6E67 		.ascii	"long unsigned int\000"
+ 875      20756E73 
+ 875      69676E65 
+ 875      6420696E 
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 21
+
+
+ 875      7400
+ 876              	.LASF12:
+ 877 00ff 75696E74 		.ascii	"uint8\000"
+ 877      3800
+ 878              	.LASF25:
+ 879 0105 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_ReadCounter\000"
+ 879      6C655F54 
+ 879      4C5F436F 
+ 879      6E74726F 
+ 879      6C5F315F 
+ 880              	.LASF27:
+ 881 012e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 881      43313120 
+ 881      352E342E 
+ 881      31203230 
+ 881      31363036 
+ 882 0161 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 882      20726576 
+ 882      6973696F 
+ 882      6E203233 
+ 882      37373135 
+ 883 0194 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 883      66756E63 
+ 883      74696F6E 
+ 883      2D736563 
+ 883      74696F6E 
+ 884              	.LASF30:
+ 885 01bc 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_initVar\000"
+ 885      6C655F54 
+ 885      4C5F436F 
+ 885      6E74726F 
+ 885      6C5F315F 
+ 886              	.LASF10:
+ 887 01e1 646F7562 		.ascii	"double\000"
+ 887      6C6500
+ 888              	.LASF19:
+ 889 01e8 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_Stop\000"
+ 889      6C655F54 
+ 889      4C5F436F 
+ 889      6E74726F 
+ 889      6C5F315F 
+ 890              	.LASF8:
+ 891 020a 756E7369 		.ascii	"unsigned int\000"
+ 891      676E6564 
+ 891      20696E74 
+ 891      00
+ 892              	.LASF22:
+ 893 0217 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_WritePeriod\000"
+ 893      6C655F54 
+ 893      4C5F436F 
+ 893      6E74726F 
+ 893      6C5F315F 
+ 894              	.LASF7:
+ 895 0240 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 895      206C6F6E 
+ 895      6720756E 
+ 895      7369676E 
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccOvYLEb.s 			page 22
+
+
+ 895      65642069 
+ 896              	.LASF18:
+ 897 0257 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_Enable\000"
+ 897      6C655F54 
+ 897      4C5F436F 
+ 897      6E74726F 
+ 897      6C5F315F 
+ 898              	.LASF15:
+ 899 027b 73697A65 		.ascii	"sizetype\000"
+ 899      74797065 
+ 899      00
+ 900              	.LASF6:
+ 901 0284 6C6F6E67 		.ascii	"long long int\000"
+ 901      206C6F6E 
+ 901      6720696E 
+ 901      7400
+ 902              	.LASF11:
+ 903 0292 63686172 		.ascii	"char\000"
+ 903      00
+ 904              	.LASF2:
+ 905 0297 73686F72 		.ascii	"short int\000"
+ 905      7420696E 
+ 905      7400
+ 906              	.LASF4:
+ 907 02a1 6C6F6E67 		.ascii	"long int\000"
+ 907      20696E74 
+ 907      00
+ 908              	.LASF14:
+ 909 02aa 6C6F6E67 		.ascii	"long double\000"
+ 909      20646F75 
+ 909      626C6500 
+ 910              	.LASF29:
+ 911 02b6 433A5C55 		.ascii	"C:\\Users\\Arturo\\Documents\\MSC\\Subjects\\MDiscr"
+ 911      73657273 
+ 911      5C417274 
+ 911      75726F5C 
+ 911      446F6375 
+ 912 02e3 65746173 		.ascii	"etas\\Test\\Liquid Crystal Display.cydsn\000"
+ 912      5C546573 
+ 912      745C4C69 
+ 912      71756964 
+ 912      20437279 
+ 913              	.LASF0:
+ 914 030a 7369676E 		.ascii	"signed char\000"
+ 914      65642063 
+ 914      68617200 
+ 915              	.LASF26:
+ 916 0316 53696D70 		.ascii	"Simple_TL_Control_1_Count7_1_ReadPeriod\000"
+ 916      6C655F54 
+ 916      4C5F436F 
+ 916      6E74726F 
+ 916      6C5F315F 
+ 917              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

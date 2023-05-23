@@ -1,0 +1,7 @@
+C:\Users\Arturo\Documents\MSC\Subjects\MDiscretas\Test\Liquid Crystal Display.cydsn\Liquid Crystal Display.cyprj|cfa9bcac-25de-4609-80bd-6b1a87994e0c
+C:\Users\Arturo\Documents\MSC\Subjects\MDiscretas\Test\Library\UDB_Library\UDB_Library.cylib\UDB_Library.cyprj|fcdcfa3c-b401-43ee-b6d1-928115e923a0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|9ce15b87-d016-4978-83c2-97a306ccdb3b
+C:\Users\Arturo\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|c161da64-ffba-44a7-9f4f-a5b91c30ec0d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|aeed56c7-97c1-460b-8fa4-4afdf42841c5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7fd81189-ea9a-4f32-88c5-400b571e874f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|80655ace-6c4f-4d06-84eb-2c8a04fbb472
