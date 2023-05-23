@@ -1,0 +1,1952 @@
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"SetTime_ISR.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.SetTime_ISR_Start,"ax",%progbits
+  20              		.align	2
+  21              		.global	SetTime_ISR_Start
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	SetTime_ISR_Start, %function
+  25              	SetTime_ISR_Start:
+  26              	.LFB32:
+  27              		.file 1 "Generated_Source\\PSoC4\\SetTime_ISR.c"
+   1:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+   2:Generated_Source\PSoC4/SetTime_ISR.c **** * File Name: SetTime_ISR.c  
+   3:Generated_Source\PSoC4/SetTime_ISR.c **** * Version 1.71
+   4:Generated_Source\PSoC4/SetTime_ISR.c **** *
+   5:Generated_Source\PSoC4/SetTime_ISR.c **** *  Description:
+   6:Generated_Source\PSoC4/SetTime_ISR.c **** *   API for controlling the state of an interrupt.
+   7:Generated_Source\PSoC4/SetTime_ISR.c **** *
+   8:Generated_Source\PSoC4/SetTime_ISR.c **** *
+   9:Generated_Source\PSoC4/SetTime_ISR.c **** *  Note:
+  10:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  11:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+  12:Generated_Source\PSoC4/SetTime_ISR.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:Generated_Source\PSoC4/SetTime_ISR.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  14:Generated_Source\PSoC4/SetTime_ISR.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  15:Generated_Source\PSoC4/SetTime_ISR.c **** * the software package with which this file was provided.
+  16:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+  17:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  18:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  19:Generated_Source\PSoC4/SetTime_ISR.c **** #include <cydevice_trm.h>
+  20:Generated_Source\PSoC4/SetTime_ISR.c **** #include <CyLib.h>
+  21:Generated_Source\PSoC4/SetTime_ISR.c **** #include <SetTime_ISR.h>
+  22:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  23:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  24:Generated_Source\PSoC4/SetTime_ISR.c **** #if !defined(SetTime_ISR__REMOVED) /* Check for removal by optimization */
+  25:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  26:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+  27:Generated_Source\PSoC4/SetTime_ISR.c **** *  Place your includes, defines and code here 
+  28:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************/
+  29:Generated_Source\PSoC4/SetTime_ISR.c **** /* `#START SetTime_ISR_intc` */
+  30:Generated_Source\PSoC4/SetTime_ISR.c **** #include <project.h>
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 2
+
+
+  31:Generated_Source\PSoC4/SetTime_ISR.c **** extern volatile int press_detect;
+  32:Generated_Source\PSoC4/SetTime_ISR.c **** /* `#END` */
+  33:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  34:Generated_Source\PSoC4/SetTime_ISR.c **** extern cyisraddress CyRamVectors[CYINT_IRQ_BASE + CY_NUM_INTERRUPTS];
+  35:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  36:Generated_Source\PSoC4/SetTime_ISR.c **** /* Declared in startup, used to set unused interrupts to. */
+  37:Generated_Source\PSoC4/SetTime_ISR.c **** CY_ISR_PROTO(IntDefaultHandler);
+  38:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  39:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  40:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+  41:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_Start
+  42:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+  43:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  44:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+  45:Generated_Source\PSoC4/SetTime_ISR.c **** *  Set up the interrupt and enable it. This function disables the interrupt, 
+  46:Generated_Source\PSoC4/SetTime_ISR.c **** *  sets the default interrupt vector, sets the priority from the value in the
+  47:Generated_Source\PSoC4/SetTime_ISR.c **** *  Design Wide Resources Interrupt Editor, then enables the interrupt to the 
+  48:Generated_Source\PSoC4/SetTime_ISR.c **** *  interrupt controller.
+  49:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  50:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:  
+  51:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+  52:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  53:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+  54:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+  55:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  56:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+  57:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_Start(void)
+  58:Generated_Source\PSoC4/SetTime_ISR.c **** {
+  28              		.loc 1 58 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  59:Generated_Source\PSoC4/SetTime_ISR.c ****     /* For all we know the interrupt is active. */
+  60:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_Disable();
+  38              		.loc 1 60 0
+  39 0004 FFF7FEFF 		bl	SetTime_ISR_Disable
+  61:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  62:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Set the ISR to point to the SetTime_ISR Interrupt. */
+  63:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_SetVector(&SetTime_ISR_Interrupt);
+  40              		.loc 1 63 0
+  41 0008 054B     		ldr	r3, .L2
+  42 000a 1800     		movs	r0, r3
+  43 000c FFF7FEFF 		bl	SetTime_ISR_SetVector
+  64:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  65:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Set the priority. */
+  66:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_SetPriority((uint8)SetTime_ISR_INTC_PRIOR_NUMBER);
+  44              		.loc 1 66 0
+  45 0010 0320     		movs	r0, #3
+  46 0012 FFF7FEFF 		bl	SetTime_ISR_SetPriority
+  67:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  68:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Enable it. */
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 3
+
+
+  69:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_Enable();
+  47              		.loc 1 69 0
+  48 0016 FFF7FEFF 		bl	SetTime_ISR_Enable
+  70:Generated_Source\PSoC4/SetTime_ISR.c **** }
+  49              		.loc 1 70 0
+  50 001a C046     		nop
+  51 001c BD46     		mov	sp, r7
+  52              		@ sp needed
+  53 001e 80BD     		pop	{r7, pc}
+  54              	.L3:
+  55              		.align	2
+  56              	.L2:
+  57 0020 00000000 		.word	SetTime_ISR_Interrupt
+  58              		.cfi_endproc
+  59              	.LFE32:
+  60              		.size	SetTime_ISR_Start, .-SetTime_ISR_Start
+  61              		.section	.text.SetTime_ISR_StartEx,"ax",%progbits
+  62              		.align	2
+  63              		.global	SetTime_ISR_StartEx
+  64              		.code	16
+  65              		.thumb_func
+  66              		.type	SetTime_ISR_StartEx, %function
+  67              	SetTime_ISR_StartEx:
+  68              	.LFB33:
+  71:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  72:Generated_Source\PSoC4/SetTime_ISR.c **** 
+  73:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+  74:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_StartEx
+  75:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+  76:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  77:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+  78:Generated_Source\PSoC4/SetTime_ISR.c **** *  Sets up the interrupt and enables it. This function disables the interrupt,
+  79:Generated_Source\PSoC4/SetTime_ISR.c **** *  sets the interrupt vector based on the address passed in, sets the priority 
+  80:Generated_Source\PSoC4/SetTime_ISR.c **** *  from the value in the Design Wide Resources Interrupt Editor, then enables 
+  81:Generated_Source\PSoC4/SetTime_ISR.c **** *  the interrupt to the interrupt controller.
+  82:Generated_Source\PSoC4/SetTime_ISR.c **** *  
+  83:Generated_Source\PSoC4/SetTime_ISR.c **** *  When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+  84:Generated_Source\PSoC4/SetTime_ISR.c **** *  used to provide consistent definition across compilers:
+  85:Generated_Source\PSoC4/SetTime_ISR.c **** *  
+  86:Generated_Source\PSoC4/SetTime_ISR.c **** *  Function definition example:
+  87:Generated_Source\PSoC4/SetTime_ISR.c **** *   CY_ISR(MyISR)
+  88:Generated_Source\PSoC4/SetTime_ISR.c **** *   {
+  89:Generated_Source\PSoC4/SetTime_ISR.c **** *   }
+  90:Generated_Source\PSoC4/SetTime_ISR.c **** *   Function prototype example:
+  91:Generated_Source\PSoC4/SetTime_ISR.c **** *   CY_ISR_PROTO(MyISR);
+  92:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  93:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:  
+  94:Generated_Source\PSoC4/SetTime_ISR.c **** *   address: Address of the ISR to set in the interrupt vector table.
+  95:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  96:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+  97:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+  98:Generated_Source\PSoC4/SetTime_ISR.c **** *
+  99:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 100:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_StartEx(cyisraddress address)
+ 101:Generated_Source\PSoC4/SetTime_ISR.c **** {
+  69              		.loc 1 101 0
+  70              		.cfi_startproc
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 4
+
+
+  71              		@ args = 0, pretend = 0, frame = 8
+  72              		@ frame_needed = 1, uses_anonymous_args = 0
+  73 0000 80B5     		push	{r7, lr}
+  74              		.cfi_def_cfa_offset 8
+  75              		.cfi_offset 7, -8
+  76              		.cfi_offset 14, -4
+  77 0002 82B0     		sub	sp, sp, #8
+  78              		.cfi_def_cfa_offset 16
+  79 0004 00AF     		add	r7, sp, #0
+  80              		.cfi_def_cfa_register 7
+  81 0006 7860     		str	r0, [r7, #4]
+ 102:Generated_Source\PSoC4/SetTime_ISR.c ****     /* For all we know the interrupt is active. */
+ 103:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_Disable();
+  82              		.loc 1 103 0
+  83 0008 FFF7FEFF 		bl	SetTime_ISR_Disable
+ 104:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 105:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Set the ISR to point to the SetTime_ISR Interrupt. */
+ 106:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_SetVector(address);
+  84              		.loc 1 106 0
+  85 000c 7B68     		ldr	r3, [r7, #4]
+  86 000e 1800     		movs	r0, r3
+  87 0010 FFF7FEFF 		bl	SetTime_ISR_SetVector
+ 107:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 108:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Set the priority. */
+ 109:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_SetPriority((uint8)SetTime_ISR_INTC_PRIOR_NUMBER);
+  88              		.loc 1 109 0
+  89 0014 0320     		movs	r0, #3
+  90 0016 FFF7FEFF 		bl	SetTime_ISR_SetPriority
+ 110:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 111:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Enable it. */
+ 112:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_Enable();
+  91              		.loc 1 112 0
+  92 001a FFF7FEFF 		bl	SetTime_ISR_Enable
+ 113:Generated_Source\PSoC4/SetTime_ISR.c **** }
+  93              		.loc 1 113 0
+  94 001e C046     		nop
+  95 0020 BD46     		mov	sp, r7
+  96 0022 02B0     		add	sp, sp, #8
+  97              		@ sp needed
+  98 0024 80BD     		pop	{r7, pc}
+  99              		.cfi_endproc
+ 100              	.LFE33:
+ 101              		.size	SetTime_ISR_StartEx, .-SetTime_ISR_StartEx
+ 102 0026 C046     		.section	.text.SetTime_ISR_Stop,"ax",%progbits
+ 103              		.align	2
+ 104              		.global	SetTime_ISR_Stop
+ 105              		.code	16
+ 106              		.thumb_func
+ 107              		.type	SetTime_ISR_Stop, %function
+ 108              	SetTime_ISR_Stop:
+ 109              	.LFB34:
+ 114:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 115:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 116:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 117:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_Stop
+ 118:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 119:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 5
+
+
+ 120:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 121:Generated_Source\PSoC4/SetTime_ISR.c **** *   Disables and removes the interrupt.
+ 122:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 123:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:  
+ 124:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 125:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 126:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 127:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 128:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 129:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 130:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_Stop(void)
+ 131:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 110              		.loc 1 131 0
+ 111              		.cfi_startproc
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 1, uses_anonymous_args = 0
+ 114 0000 80B5     		push	{r7, lr}
+ 115              		.cfi_def_cfa_offset 8
+ 116              		.cfi_offset 7, -8
+ 117              		.cfi_offset 14, -4
+ 118 0002 00AF     		add	r7, sp, #0
+ 119              		.cfi_def_cfa_register 7
+ 132:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Disable this interrupt. */
+ 133:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_Disable();
+ 120              		.loc 1 133 0
+ 121 0004 FFF7FEFF 		bl	SetTime_ISR_Disable
+ 134:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 135:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Set the ISR to point to the passive one. */
+ 136:Generated_Source\PSoC4/SetTime_ISR.c ****     SetTime_ISR_SetVector(&IntDefaultHandler);
+ 122              		.loc 1 136 0
+ 123 0008 034B     		ldr	r3, .L6
+ 124 000a 1800     		movs	r0, r3
+ 125 000c FFF7FEFF 		bl	SetTime_ISR_SetVector
+ 137:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 126              		.loc 1 137 0
+ 127 0010 C046     		nop
+ 128 0012 BD46     		mov	sp, r7
+ 129              		@ sp needed
+ 130 0014 80BD     		pop	{r7, pc}
+ 131              	.L7:
+ 132 0016 C046     		.align	2
+ 133              	.L6:
+ 134 0018 00000000 		.word	IntDefaultHandler
+ 135              		.cfi_endproc
+ 136              	.LFE34:
+ 137              		.size	SetTime_ISR_Stop, .-SetTime_ISR_Stop
+ 138              		.section	.text.SetTime_ISR_Interrupt,"ax",%progbits
+ 139              		.align	2
+ 140              		.global	SetTime_ISR_Interrupt
+ 141              		.code	16
+ 142              		.thumb_func
+ 143              		.type	SetTime_ISR_Interrupt, %function
+ 144              	SetTime_ISR_Interrupt:
+ 145              	.LFB35:
+ 138:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 139:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 140:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 6
+
+
+ 141:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_Interrupt
+ 142:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 143:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 144:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 145:Generated_Source\PSoC4/SetTime_ISR.c **** *   The default Interrupt Service Routine for SetTime_ISR.
+ 146:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 147:Generated_Source\PSoC4/SetTime_ISR.c **** *   Add custom code between the START and END comments to keep the next version
+ 148:Generated_Source\PSoC4/SetTime_ISR.c **** *   of this file from over-writing your code.
+ 149:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 150:Generated_Source\PSoC4/SetTime_ISR.c **** *   Note You may use either the default ISR by using this API, or you may define
+ 151:Generated_Source\PSoC4/SetTime_ISR.c **** *   your own separate ISR through ISR_StartEx().
+ 152:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 153:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:  
+ 154:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 155:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 156:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 157:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 158:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 159:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 160:Generated_Source\PSoC4/SetTime_ISR.c **** CY_ISR(SetTime_ISR_Interrupt)
+ 161:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 146              		.loc 1 161 0
+ 147              		.cfi_startproc
+ 148              		@ args = 0, pretend = 0, frame = 0
+ 149              		@ frame_needed = 1, uses_anonymous_args = 0
+ 150 0000 80B5     		push	{r7, lr}
+ 151              		.cfi_def_cfa_offset 8
+ 152              		.cfi_offset 7, -8
+ 153              		.cfi_offset 14, -4
+ 154 0002 00AF     		add	r7, sp, #0
+ 155              		.cfi_def_cfa_register 7
+ 162:Generated_Source\PSoC4/SetTime_ISR.c ****     #ifdef SetTime_ISR_INTERRUPT_INTERRUPT_CALLBACK
+ 163:Generated_Source\PSoC4/SetTime_ISR.c ****         SetTime_ISR_Interrupt_InterruptCallback();
+ 164:Generated_Source\PSoC4/SetTime_ISR.c ****     #endif /* SetTime_ISR_INTERRUPT_INTERRUPT_CALLBACK */ 
+ 165:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 166:Generated_Source\PSoC4/SetTime_ISR.c ****     /*  Place your Interrupt code here. */
+ 167:Generated_Source\PSoC4/SetTime_ISR.c ****     /* `#START SetTime_ISR_Interrupt` */
+ 168:Generated_Source\PSoC4/SetTime_ISR.c ****  //   SetTime_ISR_ClearPending();
+ 169:Generated_Source\PSoC4/SetTime_ISR.c **** Set_Time_ClearInterrupt();
+ 156              		.loc 1 169 0
+ 157 0004 FFF7FEFF 		bl	Set_Time_ClearInterrupt
+ 170:Generated_Source\PSoC4/SetTime_ISR.c ****     press_detect=0;
+ 158              		.loc 1 170 0
+ 159 0008 024B     		ldr	r3, .L9
+ 160 000a 0022     		movs	r2, #0
+ 161 000c 1A60     		str	r2, [r3]
+ 171:Generated_Source\PSoC4/SetTime_ISR.c ****     /* `#END` */
+ 172:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 162              		.loc 1 172 0
+ 163 000e C046     		nop
+ 164 0010 BD46     		mov	sp, r7
+ 165              		@ sp needed
+ 166 0012 80BD     		pop	{r7, pc}
+ 167              	.L10:
+ 168              		.align	2
+ 169              	.L9:
+ 170 0014 00000000 		.word	press_detect
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 7
+
+
+ 171              		.cfi_endproc
+ 172              	.LFE35:
+ 173              		.size	SetTime_ISR_Interrupt, .-SetTime_ISR_Interrupt
+ 174              		.section	.text.SetTime_ISR_SetVector,"ax",%progbits
+ 175              		.align	2
+ 176              		.global	SetTime_ISR_SetVector
+ 177              		.code	16
+ 178              		.thumb_func
+ 179              		.type	SetTime_ISR_SetVector, %function
+ 180              	SetTime_ISR_SetVector:
+ 181              	.LFB36:
+ 173:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 174:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 175:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 176:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_SetVector
+ 177:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 178:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 179:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 180:Generated_Source\PSoC4/SetTime_ISR.c **** *   Change the ISR vector for the Interrupt. Note calling SetTime_ISR_Start
+ 181:Generated_Source\PSoC4/SetTime_ISR.c **** *   will override any effect this method would have had. To set the vector 
+ 182:Generated_Source\PSoC4/SetTime_ISR.c **** *   before the component has been started use SetTime_ISR_StartEx instead.
+ 183:Generated_Source\PSoC4/SetTime_ISR.c **** * 
+ 184:Generated_Source\PSoC4/SetTime_ISR.c **** *   When defining ISR functions, the CY_ISR and CY_ISR_PROTO macros should be 
+ 185:Generated_Source\PSoC4/SetTime_ISR.c **** *   used to provide consistent definition across compilers:
+ 186:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 187:Generated_Source\PSoC4/SetTime_ISR.c **** *   Function definition example:
+ 188:Generated_Source\PSoC4/SetTime_ISR.c **** *   CY_ISR(MyISR)
+ 189:Generated_Source\PSoC4/SetTime_ISR.c **** *   {
+ 190:Generated_Source\PSoC4/SetTime_ISR.c **** *   }
+ 191:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 192:Generated_Source\PSoC4/SetTime_ISR.c **** *   Function prototype example:
+ 193:Generated_Source\PSoC4/SetTime_ISR.c **** *     CY_ISR_PROTO(MyISR);
+ 194:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 195:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 196:Generated_Source\PSoC4/SetTime_ISR.c **** *   address: Address of the ISR to set in the interrupt vector table.
+ 197:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 198:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 199:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 200:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 201:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 202:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_SetVector(cyisraddress address)
+ 203:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 182              		.loc 1 203 0
+ 183              		.cfi_startproc
+ 184              		@ args = 0, pretend = 0, frame = 8
+ 185              		@ frame_needed = 1, uses_anonymous_args = 0
+ 186 0000 80B5     		push	{r7, lr}
+ 187              		.cfi_def_cfa_offset 8
+ 188              		.cfi_offset 7, -8
+ 189              		.cfi_offset 14, -4
+ 190 0002 82B0     		sub	sp, sp, #8
+ 191              		.cfi_def_cfa_offset 16
+ 192 0004 00AF     		add	r7, sp, #0
+ 193              		.cfi_def_cfa_register 7
+ 194 0006 7860     		str	r0, [r7, #4]
+ 204:Generated_Source\PSoC4/SetTime_ISR.c ****     CyRamVectors[CYINT_IRQ_BASE + SetTime_ISR__INTC_NUMBER] = address;
+ 195              		.loc 1 204 0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 8
+
+
+ 196 0008 034B     		ldr	r3, .L12
+ 197 000a 7A68     		ldr	r2, [r7, #4]
+ 198 000c 1A64     		str	r2, [r3, #64]
+ 205:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 199              		.loc 1 205 0
+ 200 000e C046     		nop
+ 201 0010 BD46     		mov	sp, r7
+ 202 0012 02B0     		add	sp, sp, #8
+ 203              		@ sp needed
+ 204 0014 80BD     		pop	{r7, pc}
+ 205              	.L13:
+ 206 0016 C046     		.align	2
+ 207              	.L12:
+ 208 0018 00000000 		.word	CyRamVectors
+ 209              		.cfi_endproc
+ 210              	.LFE36:
+ 211              		.size	SetTime_ISR_SetVector, .-SetTime_ISR_SetVector
+ 212              		.section	.text.SetTime_ISR_GetVector,"ax",%progbits
+ 213              		.align	2
+ 214              		.global	SetTime_ISR_GetVector
+ 215              		.code	16
+ 216              		.thumb_func
+ 217              		.type	SetTime_ISR_GetVector, %function
+ 218              	SetTime_ISR_GetVector:
+ 219              	.LFB37:
+ 206:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 207:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 208:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 209:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_GetVector
+ 210:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 211:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 212:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 213:Generated_Source\PSoC4/SetTime_ISR.c **** *   Gets the "address" of the current ISR vector for the Interrupt.
+ 214:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 215:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 216:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 217:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 218:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 219:Generated_Source\PSoC4/SetTime_ISR.c **** *   Address of the ISR in the interrupt vector table.
+ 220:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 221:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 222:Generated_Source\PSoC4/SetTime_ISR.c **** cyisraddress SetTime_ISR_GetVector(void)
+ 223:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 220              		.loc 1 223 0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 1, uses_anonymous_args = 0
+ 224 0000 80B5     		push	{r7, lr}
+ 225              		.cfi_def_cfa_offset 8
+ 226              		.cfi_offset 7, -8
+ 227              		.cfi_offset 14, -4
+ 228 0002 00AF     		add	r7, sp, #0
+ 229              		.cfi_def_cfa_register 7
+ 224:Generated_Source\PSoC4/SetTime_ISR.c ****     return CyRamVectors[CYINT_IRQ_BASE + SetTime_ISR__INTC_NUMBER];
+ 230              		.loc 1 224 0
+ 231 0004 024B     		ldr	r3, .L16
+ 232 0006 1B6C     		ldr	r3, [r3, #64]
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 9
+
+
+ 225:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 233              		.loc 1 225 0
+ 234 0008 1800     		movs	r0, r3
+ 235 000a BD46     		mov	sp, r7
+ 236              		@ sp needed
+ 237 000c 80BD     		pop	{r7, pc}
+ 238              	.L17:
+ 239 000e C046     		.align	2
+ 240              	.L16:
+ 241 0010 00000000 		.word	CyRamVectors
+ 242              		.cfi_endproc
+ 243              	.LFE37:
+ 244              		.size	SetTime_ISR_GetVector, .-SetTime_ISR_GetVector
+ 245              		.section	.text.SetTime_ISR_SetPriority,"ax",%progbits
+ 246              		.align	2
+ 247              		.global	SetTime_ISR_SetPriority
+ 248              		.code	16
+ 249              		.thumb_func
+ 250              		.type	SetTime_ISR_SetPriority, %function
+ 251              	SetTime_ISR_SetPriority:
+ 252              	.LFB38:
+ 226:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 227:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 228:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 229:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_SetPriority
+ 230:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 231:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 232:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 233:Generated_Source\PSoC4/SetTime_ISR.c **** *   Sets the Priority of the Interrupt. 
+ 234:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 235:Generated_Source\PSoC4/SetTime_ISR.c **** *   Note calling SetTime_ISR_Start or SetTime_ISR_StartEx will 
+ 236:Generated_Source\PSoC4/SetTime_ISR.c **** *   override any effect this API would have had. This API should only be called
+ 237:Generated_Source\PSoC4/SetTime_ISR.c **** *   after SetTime_ISR_Start or SetTime_ISR_StartEx has been called. 
+ 238:Generated_Source\PSoC4/SetTime_ISR.c **** *   To set the initial priority for the component, use the Design-Wide Resources
+ 239:Generated_Source\PSoC4/SetTime_ISR.c **** *   Interrupt Editor.
+ 240:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 241:Generated_Source\PSoC4/SetTime_ISR.c **** *   Note This API has no effect on Non-maskable interrupt NMI).
+ 242:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 243:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 244:Generated_Source\PSoC4/SetTime_ISR.c **** *   priority: Priority of the interrupt, 0 being the highest priority
+ 245:Generated_Source\PSoC4/SetTime_ISR.c **** *             PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 246:Generated_Source\PSoC4/SetTime_ISR.c **** *             PSoC 4: Priority is from 0 to 3.
+ 247:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 248:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 249:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 250:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 251:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 252:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_SetPriority(uint8 priority)
+ 253:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 253              		.loc 1 253 0
+ 254              		.cfi_startproc
+ 255              		@ args = 0, pretend = 0, frame = 16
+ 256              		@ frame_needed = 1, uses_anonymous_args = 0
+ 257 0000 90B5     		push	{r4, r7, lr}
+ 258              		.cfi_def_cfa_offset 12
+ 259              		.cfi_offset 4, -12
+ 260              		.cfi_offset 7, -8
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 10
+
+
+ 261              		.cfi_offset 14, -4
+ 262 0002 85B0     		sub	sp, sp, #20
+ 263              		.cfi_def_cfa_offset 32
+ 264 0004 00AF     		add	r7, sp, #0
+ 265              		.cfi_def_cfa_register 7
+ 266 0006 0200     		movs	r2, r0
+ 267 0008 FB1D     		adds	r3, r7, #7
+ 268 000a 1A70     		strb	r2, [r3]
+ 254:Generated_Source\PSoC4/SetTime_ISR.c **** 	uint8 interruptState;
+ 255:Generated_Source\PSoC4/SetTime_ISR.c ****     uint32 priorityOffset = ((SetTime_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
+ 269              		.loc 1 255 0
+ 270 000c 0623     		movs	r3, #6
+ 271 000e FB60     		str	r3, [r7, #12]
+ 256:Generated_Source\PSoC4/SetTime_ISR.c ****     
+ 257:Generated_Source\PSoC4/SetTime_ISR.c **** 	interruptState = CyEnterCriticalSection();
+ 272              		.loc 1 257 0
+ 273 0010 0B23     		movs	r3, #11
+ 274 0012 FC18     		adds	r4, r7, r3
+ 275 0014 FFF7FEFF 		bl	CyEnterCriticalSection
+ 276 0018 0300     		movs	r3, r0
+ 277 001a 2370     		strb	r3, [r4]
+ 258:Generated_Source\PSoC4/SetTime_ISR.c ****     *SetTime_ISR_INTC_PRIOR = (*SetTime_ISR_INTC_PRIOR & (uint32)(~(uint32)SetTime_ISR__INTC_PRIOR_
+ 278              		.loc 1 258 0
+ 279 001c 0B4B     		ldr	r3, .L19
+ 280 001e 0B4A     		ldr	r2, .L19
+ 281 0020 1268     		ldr	r2, [r2]
+ 282 0022 C021     		movs	r1, #192
+ 283 0024 8A43     		bics	r2, r1
+ 284 0026 1100     		movs	r1, r2
+ 259:Generated_Source\PSoC4/SetTime_ISR.c ****                                     ((uint32)priority << priorityOffset);
+ 285              		.loc 1 259 0
+ 286 0028 FA1D     		adds	r2, r7, #7
+ 287 002a 1078     		ldrb	r0, [r2]
+ 288 002c FA68     		ldr	r2, [r7, #12]
+ 289 002e 9040     		lsls	r0, r0, r2
+ 290 0030 0200     		movs	r2, r0
+ 258:Generated_Source\PSoC4/SetTime_ISR.c ****     *SetTime_ISR_INTC_PRIOR = (*SetTime_ISR_INTC_PRIOR & (uint32)(~(uint32)SetTime_ISR__INTC_PRIOR_
+ 291              		.loc 1 258 0
+ 292 0032 0A43     		orrs	r2, r1
+ 293 0034 1A60     		str	r2, [r3]
+ 260:Generated_Source\PSoC4/SetTime_ISR.c **** 	CyExitCriticalSection(interruptState);
+ 294              		.loc 1 260 0
+ 295 0036 0B23     		movs	r3, #11
+ 296 0038 FB18     		adds	r3, r7, r3
+ 297 003a 1B78     		ldrb	r3, [r3]
+ 298 003c 1800     		movs	r0, r3
+ 299 003e FFF7FEFF 		bl	CyExitCriticalSection
+ 261:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 300              		.loc 1 261 0
+ 301 0042 C046     		nop
+ 302 0044 BD46     		mov	sp, r7
+ 303 0046 05B0     		add	sp, sp, #20
+ 304              		@ sp needed
+ 305 0048 90BD     		pop	{r4, r7, pc}
+ 306              	.L20:
+ 307 004a C046     		.align	2
+ 308              	.L19:
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 11
+
+
+ 309 004c 00E400E0 		.word	-536812544
+ 310              		.cfi_endproc
+ 311              	.LFE38:
+ 312              		.size	SetTime_ISR_SetPriority, .-SetTime_ISR_SetPriority
+ 313              		.section	.text.SetTime_ISR_GetPriority,"ax",%progbits
+ 314              		.align	2
+ 315              		.global	SetTime_ISR_GetPriority
+ 316              		.code	16
+ 317              		.thumb_func
+ 318              		.type	SetTime_ISR_GetPriority, %function
+ 319              	SetTime_ISR_GetPriority:
+ 320              	.LFB39:
+ 262:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 263:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 264:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 265:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_GetPriority
+ 266:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 267:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 268:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 269:Generated_Source\PSoC4/SetTime_ISR.c **** *   Gets the Priority of the Interrupt.
+ 270:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 271:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 272:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 273:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 274:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 275:Generated_Source\PSoC4/SetTime_ISR.c **** *   Priority of the interrupt, 0 being the highest priority
+ 276:Generated_Source\PSoC4/SetTime_ISR.c **** *    PSoC 3 and PSoC 5LP: Priority is from 0 to 7.
+ 277:Generated_Source\PSoC4/SetTime_ISR.c **** *    PSoC 4: Priority is from 0 to 3.
+ 278:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 279:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 280:Generated_Source\PSoC4/SetTime_ISR.c **** uint8 SetTime_ISR_GetPriority(void)
+ 281:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 321              		.loc 1 281 0
+ 322              		.cfi_startproc
+ 323              		@ args = 0, pretend = 0, frame = 8
+ 324              		@ frame_needed = 1, uses_anonymous_args = 0
+ 325 0000 80B5     		push	{r7, lr}
+ 326              		.cfi_def_cfa_offset 8
+ 327              		.cfi_offset 7, -8
+ 328              		.cfi_offset 14, -4
+ 329 0002 82B0     		sub	sp, sp, #8
+ 330              		.cfi_def_cfa_offset 16
+ 331 0004 00AF     		add	r7, sp, #0
+ 332              		.cfi_def_cfa_register 7
+ 282:Generated_Source\PSoC4/SetTime_ISR.c ****     uint32 priority;
+ 283:Generated_Source\PSoC4/SetTime_ISR.c **** 	uint32 priorityOffset = ((SetTime_ISR__INTC_NUMBER % 4u) * 8u) + 6u;
+ 333              		.loc 1 283 0
+ 334 0006 0623     		movs	r3, #6
+ 335 0008 7B60     		str	r3, [r7, #4]
+ 284:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 285:Generated_Source\PSoC4/SetTime_ISR.c ****     priority = (*SetTime_ISR_INTC_PRIOR & SetTime_ISR__INTC_PRIOR_MASK) >> priorityOffset;
+ 336              		.loc 1 285 0
+ 337 000a 074B     		ldr	r3, .L23
+ 338 000c 1B68     		ldr	r3, [r3]
+ 339 000e C022     		movs	r2, #192
+ 340 0010 1A40     		ands	r2, r3
+ 341 0012 7B68     		ldr	r3, [r7, #4]
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 12
+
+
+ 342 0014 DA40     		lsrs	r2, r2, r3
+ 343 0016 1300     		movs	r3, r2
+ 344 0018 3B60     		str	r3, [r7]
+ 286:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 287:Generated_Source\PSoC4/SetTime_ISR.c ****     return (uint8)priority;
+ 345              		.loc 1 287 0
+ 346 001a 3B68     		ldr	r3, [r7]
+ 347 001c DBB2     		uxtb	r3, r3
+ 288:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 348              		.loc 1 288 0
+ 349 001e 1800     		movs	r0, r3
+ 350 0020 BD46     		mov	sp, r7
+ 351 0022 02B0     		add	sp, sp, #8
+ 352              		@ sp needed
+ 353 0024 80BD     		pop	{r7, pc}
+ 354              	.L24:
+ 355 0026 C046     		.align	2
+ 356              	.L23:
+ 357 0028 00E400E0 		.word	-536812544
+ 358              		.cfi_endproc
+ 359              	.LFE39:
+ 360              		.size	SetTime_ISR_GetPriority, .-SetTime_ISR_GetPriority
+ 361              		.section	.text.SetTime_ISR_Enable,"ax",%progbits
+ 362              		.align	2
+ 363              		.global	SetTime_ISR_Enable
+ 364              		.code	16
+ 365              		.thumb_func
+ 366              		.type	SetTime_ISR_Enable, %function
+ 367              	SetTime_ISR_Enable:
+ 368              	.LFB40:
+ 289:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 290:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 291:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 292:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_Enable
+ 293:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 294:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 295:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 296:Generated_Source\PSoC4/SetTime_ISR.c **** *   Enables the interrupt to the interrupt controller. Do not call this function
+ 297:Generated_Source\PSoC4/SetTime_ISR.c **** *   unless ISR_Start() has been called or the functionality of the ISR_Start() 
+ 298:Generated_Source\PSoC4/SetTime_ISR.c **** *   function, which sets the vector and the priority, has been called.
+ 299:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 300:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 301:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 302:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 303:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 304:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 305:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 306:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 307:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_Enable(void)
+ 308:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 369              		.loc 1 308 0
+ 370              		.cfi_startproc
+ 371              		@ args = 0, pretend = 0, frame = 0
+ 372              		@ frame_needed = 1, uses_anonymous_args = 0
+ 373 0000 80B5     		push	{r7, lr}
+ 374              		.cfi_def_cfa_offset 8
+ 375              		.cfi_offset 7, -8
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 13
+
+
+ 376              		.cfi_offset 14, -4
+ 377 0002 00AF     		add	r7, sp, #0
+ 378              		.cfi_def_cfa_register 7
+ 309:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Enable the general interrupt. */
+ 310:Generated_Source\PSoC4/SetTime_ISR.c ****     *SetTime_ISR_INTC_SET_EN = SetTime_ISR__INTC_MASK;
+ 379              		.loc 1 310 0
+ 380 0004 024B     		ldr	r3, .L26
+ 381 0006 0122     		movs	r2, #1
+ 382 0008 1A60     		str	r2, [r3]
+ 311:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 383              		.loc 1 311 0
+ 384 000a C046     		nop
+ 385 000c BD46     		mov	sp, r7
+ 386              		@ sp needed
+ 387 000e 80BD     		pop	{r7, pc}
+ 388              	.L27:
+ 389              		.align	2
+ 390              	.L26:
+ 391 0010 00E100E0 		.word	-536813312
+ 392              		.cfi_endproc
+ 393              	.LFE40:
+ 394              		.size	SetTime_ISR_Enable, .-SetTime_ISR_Enable
+ 395              		.section	.text.SetTime_ISR_GetState,"ax",%progbits
+ 396              		.align	2
+ 397              		.global	SetTime_ISR_GetState
+ 398              		.code	16
+ 399              		.thumb_func
+ 400              		.type	SetTime_ISR_GetState, %function
+ 401              	SetTime_ISR_GetState:
+ 402              	.LFB41:
+ 312:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 313:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 314:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 315:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_GetState
+ 316:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 317:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 318:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 319:Generated_Source\PSoC4/SetTime_ISR.c **** *   Gets the state (enabled, disabled) of the Interrupt.
+ 320:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 321:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 322:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 323:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 324:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 325:Generated_Source\PSoC4/SetTime_ISR.c **** *   1 if enabled, 0 if disabled.
+ 326:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 327:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 328:Generated_Source\PSoC4/SetTime_ISR.c **** uint8 SetTime_ISR_GetState(void)
+ 329:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 403              		.loc 1 329 0
+ 404              		.cfi_startproc
+ 405              		@ args = 0, pretend = 0, frame = 0
+ 406              		@ frame_needed = 1, uses_anonymous_args = 0
+ 407 0000 80B5     		push	{r7, lr}
+ 408              		.cfi_def_cfa_offset 8
+ 409              		.cfi_offset 7, -8
+ 410              		.cfi_offset 14, -4
+ 411 0002 00AF     		add	r7, sp, #0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 14
+
+
+ 412              		.cfi_def_cfa_register 7
+ 330:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Get the state of the general interrupt. */
+ 331:Generated_Source\PSoC4/SetTime_ISR.c ****     return ((*SetTime_ISR_INTC_SET_EN & (uint32)SetTime_ISR__INTC_MASK) != 0u) ? 1u:0u;
+ 413              		.loc 1 331 0
+ 414 0004 044B     		ldr	r3, .L30
+ 415 0006 1B68     		ldr	r3, [r3]
+ 416 0008 DBB2     		uxtb	r3, r3
+ 417 000a 0122     		movs	r2, #1
+ 418 000c 1340     		ands	r3, r2
+ 419 000e DBB2     		uxtb	r3, r3
+ 332:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 420              		.loc 1 332 0
+ 421 0010 1800     		movs	r0, r3
+ 422 0012 BD46     		mov	sp, r7
+ 423              		@ sp needed
+ 424 0014 80BD     		pop	{r7, pc}
+ 425              	.L31:
+ 426 0016 C046     		.align	2
+ 427              	.L30:
+ 428 0018 00E100E0 		.word	-536813312
+ 429              		.cfi_endproc
+ 430              	.LFE41:
+ 431              		.size	SetTime_ISR_GetState, .-SetTime_ISR_GetState
+ 432              		.section	.text.SetTime_ISR_Disable,"ax",%progbits
+ 433              		.align	2
+ 434              		.global	SetTime_ISR_Disable
+ 435              		.code	16
+ 436              		.thumb_func
+ 437              		.type	SetTime_ISR_Disable, %function
+ 438              	SetTime_ISR_Disable:
+ 439              	.LFB42:
+ 333:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 334:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 335:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 336:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_Disable
+ 337:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 338:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 339:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 340:Generated_Source\PSoC4/SetTime_ISR.c **** *   Disables the Interrupt in the interrupt controller.
+ 341:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 342:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 343:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 344:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 345:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 346:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 347:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 348:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 349:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_Disable(void)
+ 350:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 440              		.loc 1 350 0
+ 441              		.cfi_startproc
+ 442              		@ args = 0, pretend = 0, frame = 0
+ 443              		@ frame_needed = 1, uses_anonymous_args = 0
+ 444 0000 80B5     		push	{r7, lr}
+ 445              		.cfi_def_cfa_offset 8
+ 446              		.cfi_offset 7, -8
+ 447              		.cfi_offset 14, -4
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 15
+
+
+ 448 0002 00AF     		add	r7, sp, #0
+ 449              		.cfi_def_cfa_register 7
+ 351:Generated_Source\PSoC4/SetTime_ISR.c ****     /* Disable the general interrupt. */
+ 352:Generated_Source\PSoC4/SetTime_ISR.c ****     *SetTime_ISR_INTC_CLR_EN = SetTime_ISR__INTC_MASK;
+ 450              		.loc 1 352 0
+ 451 0004 024B     		ldr	r3, .L33
+ 452 0006 0122     		movs	r2, #1
+ 453 0008 1A60     		str	r2, [r3]
+ 353:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 454              		.loc 1 353 0
+ 455 000a C046     		nop
+ 456 000c BD46     		mov	sp, r7
+ 457              		@ sp needed
+ 458 000e 80BD     		pop	{r7, pc}
+ 459              	.L34:
+ 460              		.align	2
+ 461              	.L33:
+ 462 0010 80E100E0 		.word	-536813184
+ 463              		.cfi_endproc
+ 464              	.LFE42:
+ 465              		.size	SetTime_ISR_Disable, .-SetTime_ISR_Disable
+ 466              		.section	.text.SetTime_ISR_SetPending,"ax",%progbits
+ 467              		.align	2
+ 468              		.global	SetTime_ISR_SetPending
+ 469              		.code	16
+ 470              		.thumb_func
+ 471              		.type	SetTime_ISR_SetPending, %function
+ 472              	SetTime_ISR_SetPending:
+ 473              	.LFB43:
+ 354:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 355:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 356:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 357:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_SetPending
+ 358:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 359:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 360:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 361:Generated_Source\PSoC4/SetTime_ISR.c **** *   Causes the Interrupt to enter the pending state, a software method of
+ 362:Generated_Source\PSoC4/SetTime_ISR.c **** *   generating the interrupt.
+ 363:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 364:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 365:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 366:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 367:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 368:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 369:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 370:Generated_Source\PSoC4/SetTime_ISR.c **** * Side Effects:
+ 371:Generated_Source\PSoC4/SetTime_ISR.c **** *   If interrupts are enabled and the interrupt is set up properly, the ISR is
+ 372:Generated_Source\PSoC4/SetTime_ISR.c **** *   entered (depending on the priority of this interrupt and other pending 
+ 373:Generated_Source\PSoC4/SetTime_ISR.c **** *   interrupts).
+ 374:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 375:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 376:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_SetPending(void)
+ 377:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 474              		.loc 1 377 0
+ 475              		.cfi_startproc
+ 476              		@ args = 0, pretend = 0, frame = 0
+ 477              		@ frame_needed = 1, uses_anonymous_args = 0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 16
+
+
+ 478 0000 80B5     		push	{r7, lr}
+ 479              		.cfi_def_cfa_offset 8
+ 480              		.cfi_offset 7, -8
+ 481              		.cfi_offset 14, -4
+ 482 0002 00AF     		add	r7, sp, #0
+ 483              		.cfi_def_cfa_register 7
+ 378:Generated_Source\PSoC4/SetTime_ISR.c ****     *SetTime_ISR_INTC_SET_PD = SetTime_ISR__INTC_MASK;
+ 484              		.loc 1 378 0
+ 485 0004 024B     		ldr	r3, .L36
+ 486 0006 0122     		movs	r2, #1
+ 487 0008 1A60     		str	r2, [r3]
+ 379:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 488              		.loc 1 379 0
+ 489 000a C046     		nop
+ 490 000c BD46     		mov	sp, r7
+ 491              		@ sp needed
+ 492 000e 80BD     		pop	{r7, pc}
+ 493              	.L37:
+ 494              		.align	2
+ 495              	.L36:
+ 496 0010 00E200E0 		.word	-536813056
+ 497              		.cfi_endproc
+ 498              	.LFE43:
+ 499              		.size	SetTime_ISR_SetPending, .-SetTime_ISR_SetPending
+ 500              		.section	.text.SetTime_ISR_ClearPending,"ax",%progbits
+ 501              		.align	2
+ 502              		.global	SetTime_ISR_ClearPending
+ 503              		.code	16
+ 504              		.thumb_func
+ 505              		.type	SetTime_ISR_ClearPending, %function
+ 506              	SetTime_ISR_ClearPending:
+ 507              	.LFB44:
+ 380:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 381:Generated_Source\PSoC4/SetTime_ISR.c **** 
+ 382:Generated_Source\PSoC4/SetTime_ISR.c **** /*******************************************************************************
+ 383:Generated_Source\PSoC4/SetTime_ISR.c **** * Function Name: SetTime_ISR_ClearPending
+ 384:Generated_Source\PSoC4/SetTime_ISR.c **** ********************************************************************************
+ 385:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 386:Generated_Source\PSoC4/SetTime_ISR.c **** * Summary:
+ 387:Generated_Source\PSoC4/SetTime_ISR.c **** *   Clears a pending interrupt in the interrupt controller.
+ 388:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 389:Generated_Source\PSoC4/SetTime_ISR.c **** *   Note Some interrupt sources are clear-on-read and require the block 
+ 390:Generated_Source\PSoC4/SetTime_ISR.c **** *   interrupt/status register to be read/cleared with the appropriate block API 
+ 391:Generated_Source\PSoC4/SetTime_ISR.c **** *   (GPIO, UART, and so on). Otherwise the ISR will continue to remain in 
+ 392:Generated_Source\PSoC4/SetTime_ISR.c **** *   pending state even though the interrupt itself is cleared using this API.
+ 393:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 394:Generated_Source\PSoC4/SetTime_ISR.c **** * Parameters:
+ 395:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 396:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 397:Generated_Source\PSoC4/SetTime_ISR.c **** * Return:
+ 398:Generated_Source\PSoC4/SetTime_ISR.c **** *   None
+ 399:Generated_Source\PSoC4/SetTime_ISR.c **** *
+ 400:Generated_Source\PSoC4/SetTime_ISR.c **** *******************************************************************************/
+ 401:Generated_Source\PSoC4/SetTime_ISR.c **** void SetTime_ISR_ClearPending(void)
+ 402:Generated_Source\PSoC4/SetTime_ISR.c **** {
+ 508              		.loc 1 402 0
+ 509              		.cfi_startproc
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 17
+
+
+ 510              		@ args = 0, pretend = 0, frame = 0
+ 511              		@ frame_needed = 1, uses_anonymous_args = 0
+ 512 0000 80B5     		push	{r7, lr}
+ 513              		.cfi_def_cfa_offset 8
+ 514              		.cfi_offset 7, -8
+ 515              		.cfi_offset 14, -4
+ 516 0002 00AF     		add	r7, sp, #0
+ 517              		.cfi_def_cfa_register 7
+ 403:Generated_Source\PSoC4/SetTime_ISR.c ****     *SetTime_ISR_INTC_CLR_PD = SetTime_ISR__INTC_MASK;
+ 518              		.loc 1 403 0
+ 519 0004 024B     		ldr	r3, .L39
+ 520 0006 0122     		movs	r2, #1
+ 521 0008 1A60     		str	r2, [r3]
+ 404:Generated_Source\PSoC4/SetTime_ISR.c **** }
+ 522              		.loc 1 404 0
+ 523 000a C046     		nop
+ 524 000c BD46     		mov	sp, r7
+ 525              		@ sp needed
+ 526 000e 80BD     		pop	{r7, pc}
+ 527              	.L40:
+ 528              		.align	2
+ 529              	.L39:
+ 530 0010 80E200E0 		.word	-536812928
+ 531              		.cfi_endproc
+ 532              	.LFE44:
+ 533              		.size	SetTime_ISR_ClearPending, .-SetTime_ISR_ClearPending
+ 534              		.text
+ 535              	.Letext0:
+ 536              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 537              		.section	.debug_info,"",%progbits
+ 538              	.Ldebug_info0:
+ 539 0000 59020000 		.4byte	0x259
+ 540 0004 0400     		.2byte	0x4
+ 541 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 542 000a 04       		.byte	0x4
+ 543 000b 01       		.uleb128 0x1
+ 544 000c 13010000 		.4byte	.LASF36
+ 545 0010 0C       		.byte	0xc
+ 546 0011 82000000 		.4byte	.LASF37
+ 547 0015 D8010000 		.4byte	.LASF38
+ 548 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 549 001d 00000000 		.4byte	0
+ 550 0021 00000000 		.4byte	.Ldebug_line0
+ 551 0025 02       		.uleb128 0x2
+ 552 0026 01       		.byte	0x1
+ 553 0027 06       		.byte	0x6
+ 554 0028 06030000 		.4byte	.LASF0
+ 555 002c 02       		.uleb128 0x2
+ 556 002d 01       		.byte	0x1
+ 557 002e 08       		.byte	0x8
+ 558 002f 38020000 		.4byte	.LASF1
+ 559 0033 02       		.uleb128 0x2
+ 560 0034 02       		.byte	0x2
+ 561 0035 05       		.byte	0x5
+ 562 0036 C0020000 		.4byte	.LASF2
+ 563 003a 02       		.uleb128 0x2
+ 564 003b 02       		.byte	0x2
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 18
+
+
+ 565 003c 07       		.byte	0x7
+ 566 003d 3D000000 		.4byte	.LASF3
+ 567 0041 02       		.uleb128 0x2
+ 568 0042 04       		.byte	0x4
+ 569 0043 05       		.byte	0x5
+ 570 0044 F1020000 		.4byte	.LASF4
+ 571 0048 02       		.uleb128 0x2
+ 572 0049 04       		.byte	0x4
+ 573 004a 07       		.byte	0x7
+ 574 004b FB000000 		.4byte	.LASF5
+ 575 004f 02       		.uleb128 0x2
+ 576 0050 08       		.byte	0x8
+ 577 0051 05       		.byte	0x5
+ 578 0052 AD020000 		.4byte	.LASF6
+ 579 0056 02       		.uleb128 0x2
+ 580 0057 08       		.byte	0x8
+ 581 0058 07       		.byte	0x7
+ 582 0059 6F020000 		.4byte	.LASF7
+ 583 005d 03       		.uleb128 0x3
+ 584 005e 04       		.byte	0x4
+ 585 005f 05       		.byte	0x5
+ 586 0060 696E7400 		.ascii	"int\000"
+ 587 0064 02       		.uleb128 0x2
+ 588 0065 04       		.byte	0x4
+ 589 0066 07       		.byte	0x7
+ 590 0067 46020000 		.4byte	.LASF8
+ 591 006b 04       		.uleb128 0x4
+ 592 006c 0D010000 		.4byte	.LASF9
+ 593 0070 02       		.byte	0x2
+ 594 0071 E701     		.2byte	0x1e7
+ 595 0073 2C000000 		.4byte	0x2c
+ 596 0077 04       		.uleb128 0x4
+ 597 0078 31020000 		.4byte	.LASF10
+ 598 007c 02       		.byte	0x2
+ 599 007d E901     		.2byte	0x1e9
+ 600 007f 48000000 		.4byte	0x48
+ 601 0083 02       		.uleb128 0x2
+ 602 0084 04       		.byte	0x4
+ 603 0085 04       		.byte	0x4
+ 604 0086 7C000000 		.4byte	.LASF11
+ 605 008a 02       		.uleb128 0x2
+ 606 008b 08       		.byte	0x8
+ 607 008c 04       		.byte	0x4
+ 608 008d D1010000 		.4byte	.LASF12
+ 609 0091 02       		.uleb128 0x2
+ 610 0092 01       		.byte	0x1
+ 611 0093 08       		.byte	0x8
+ 612 0094 BB020000 		.4byte	.LASF13
+ 613 0098 04       		.uleb128 0x4
+ 614 0099 12000000 		.4byte	.LASF14
+ 615 009d 02       		.byte	0x2
+ 616 009e 9302     		.2byte	0x293
+ 617 00a0 A4000000 		.4byte	0xa4
+ 618 00a4 05       		.uleb128 0x5
+ 619 00a5 77000000 		.4byte	0x77
+ 620 00a9 04       		.uleb128 0x4
+ 621 00aa 86020000 		.4byte	.LASF15
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 19
+
+
+ 622 00ae 02       		.byte	0x2
+ 623 00af A302     		.2byte	0x2a3
+ 624 00b1 B5000000 		.4byte	0xb5
+ 625 00b5 06       		.uleb128 0x6
+ 626 00b6 04       		.byte	0x4
+ 627 00b7 BB000000 		.4byte	0xbb
+ 628 00bb 07       		.uleb128 0x7
+ 629 00bc 02       		.uleb128 0x2
+ 630 00bd 08       		.byte	0x8
+ 631 00be 04       		.byte	0x4
+ 632 00bf FA020000 		.4byte	.LASF16
+ 633 00c3 02       		.uleb128 0x2
+ 634 00c4 04       		.byte	0x4
+ 635 00c5 07       		.byte	0x7
+ 636 00c6 A4020000 		.4byte	.LASF17
+ 637 00ca 08       		.uleb128 0x8
+ 638 00cb 00000000 		.4byte	.LASF18
+ 639 00cf 01       		.byte	0x1
+ 640 00d0 39       		.byte	0x39
+ 641 00d1 00000000 		.4byte	.LFB32
+ 642 00d5 24000000 		.4byte	.LFE32-.LFB32
+ 643 00d9 01       		.uleb128 0x1
+ 644 00da 9C       		.byte	0x9c
+ 645 00db 09       		.uleb128 0x9
+ 646 00dc AA010000 		.4byte	.LASF21
+ 647 00e0 01       		.byte	0x1
+ 648 00e1 64       		.byte	0x64
+ 649 00e2 00000000 		.4byte	.LFB33
+ 650 00e6 26000000 		.4byte	.LFE33-.LFB33
+ 651 00ea 01       		.uleb128 0x1
+ 652 00eb 9C       		.byte	0x9c
+ 653 00ec FF000000 		.4byte	0xff
+ 654 00f0 0A       		.uleb128 0xa
+ 655 00f1 67020000 		.4byte	.LASF23
+ 656 00f5 01       		.byte	0x1
+ 657 00f6 64       		.byte	0x64
+ 658 00f7 A9000000 		.4byte	0xa9
+ 659 00fb 02       		.uleb128 0x2
+ 660 00fc 91       		.byte	0x91
+ 661 00fd 74       		.sleb128 -12
+ 662 00fe 00       		.byte	0
+ 663 00ff 08       		.uleb128 0x8
+ 664 0100 93020000 		.4byte	.LASF19
+ 665 0104 01       		.byte	0x1
+ 666 0105 82       		.byte	0x82
+ 667 0106 00000000 		.4byte	.LFB34
+ 668 010a 1C000000 		.4byte	.LFE34-.LFB34
+ 669 010e 01       		.uleb128 0x1
+ 670 010f 9C       		.byte	0x9c
+ 671 0110 08       		.uleb128 0x8
+ 672 0111 D6000000 		.4byte	.LASF20
+ 673 0115 01       		.byte	0x1
+ 674 0116 A0       		.byte	0xa0
+ 675 0117 00000000 		.4byte	.LFB35
+ 676 011b 18000000 		.4byte	.LFE35-.LFB35
+ 677 011f 01       		.uleb128 0x1
+ 678 0120 9C       		.byte	0x9c
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 20
+
+
+ 679 0121 0B       		.uleb128 0xb
+ 680 0122 1F030000 		.4byte	.LASF22
+ 681 0126 01       		.byte	0x1
+ 682 0127 CA       		.byte	0xca
+ 683 0128 00000000 		.4byte	.LFB36
+ 684 012c 1C000000 		.4byte	.LFE36-.LFB36
+ 685 0130 01       		.uleb128 0x1
+ 686 0131 9C       		.byte	0x9c
+ 687 0132 45010000 		.4byte	0x145
+ 688 0136 0A       		.uleb128 0xa
+ 689 0137 67020000 		.4byte	.LASF23
+ 690 013b 01       		.byte	0x1
+ 691 013c CA       		.byte	0xca
+ 692 013d A9000000 		.4byte	0xa9
+ 693 0141 02       		.uleb128 0x2
+ 694 0142 91       		.byte	0x91
+ 695 0143 74       		.sleb128 -12
+ 696 0144 00       		.byte	0
+ 697 0145 0C       		.uleb128 0xc
+ 698 0146 A7000000 		.4byte	.LASF29
+ 699 014a 01       		.byte	0x1
+ 700 014b DE       		.byte	0xde
+ 701 014c A9000000 		.4byte	0xa9
+ 702 0150 00000000 		.4byte	.LFB37
+ 703 0154 14000000 		.4byte	.LFE37-.LFB37
+ 704 0158 01       		.uleb128 0x1
+ 705 0159 9C       		.byte	0x9c
+ 706 015a 09       		.uleb128 0x9
+ 707 015b 25000000 		.4byte	.LASF24
+ 708 015f 01       		.byte	0x1
+ 709 0160 FC       		.byte	0xfc
+ 710 0161 00000000 		.4byte	.LFB38
+ 711 0165 50000000 		.4byte	.LFE38-.LFB38
+ 712 0169 01       		.uleb128 0x1
+ 713 016a 9C       		.byte	0x9c
+ 714 016b 9A010000 		.4byte	0x19a
+ 715 016f 0A       		.uleb128 0xa
+ 716 0170 A1010000 		.4byte	.LASF25
+ 717 0174 01       		.byte	0x1
+ 718 0175 FC       		.byte	0xfc
+ 719 0176 6B000000 		.4byte	0x6b
+ 720 017a 02       		.uleb128 0x2
+ 721 017b 91       		.byte	0x91
+ 722 017c 67       		.sleb128 -25
+ 723 017d 0D       		.uleb128 0xd
+ 724 017e EC000000 		.4byte	.LASF26
+ 725 0182 01       		.byte	0x1
+ 726 0183 FE       		.byte	0xfe
+ 727 0184 6B000000 		.4byte	0x6b
+ 728 0188 02       		.uleb128 0x2
+ 729 0189 91       		.byte	0x91
+ 730 018a 6B       		.sleb128 -21
+ 731 018b 0D       		.uleb128 0xd
+ 732 018c E2020000 		.4byte	.LASF27
+ 733 0190 01       		.byte	0x1
+ 734 0191 FF       		.byte	0xff
+ 735 0192 77000000 		.4byte	0x77
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 21
+
+
+ 736 0196 02       		.uleb128 0x2
+ 737 0197 91       		.byte	0x91
+ 738 0198 6C       		.sleb128 -20
+ 739 0199 00       		.byte	0
+ 740 019a 0E       		.uleb128 0xe
+ 741 019b CA020000 		.4byte	.LASF39
+ 742 019f 01       		.byte	0x1
+ 743 01a0 1801     		.2byte	0x118
+ 744 01a2 6B000000 		.4byte	0x6b
+ 745 01a6 00000000 		.4byte	.LFB39
+ 746 01aa 2C000000 		.4byte	.LFE39-.LFB39
+ 747 01ae 01       		.uleb128 0x1
+ 748 01af 9C       		.byte	0x9c
+ 749 01b0 D3010000 		.4byte	0x1d3
+ 750 01b4 0F       		.uleb128 0xf
+ 751 01b5 A1010000 		.4byte	.LASF25
+ 752 01b9 01       		.byte	0x1
+ 753 01ba 1A01     		.2byte	0x11a
+ 754 01bc 77000000 		.4byte	0x77
+ 755 01c0 02       		.uleb128 0x2
+ 756 01c1 91       		.byte	0x91
+ 757 01c2 70       		.sleb128 -16
+ 758 01c3 0F       		.uleb128 0xf
+ 759 01c4 E2020000 		.4byte	.LASF27
+ 760 01c8 01       		.byte	0x1
+ 761 01c9 1B01     		.2byte	0x11b
+ 762 01cb 77000000 		.4byte	0x77
+ 763 01cf 02       		.uleb128 0x2
+ 764 01d0 91       		.byte	0x91
+ 765 01d1 74       		.sleb128 -12
+ 766 01d2 00       		.byte	0
+ 767 01d3 10       		.uleb128 0x10
+ 768 01d4 BE010000 		.4byte	.LASF28
+ 769 01d8 01       		.byte	0x1
+ 770 01d9 3301     		.2byte	0x133
+ 771 01db 00000000 		.4byte	.LFB40
+ 772 01df 14000000 		.4byte	.LFE40-.LFB40
+ 773 01e3 01       		.uleb128 0x1
+ 774 01e4 9C       		.byte	0x9c
+ 775 01e5 11       		.uleb128 0x11
+ 776 01e6 67000000 		.4byte	.LASF30
+ 777 01ea 01       		.byte	0x1
+ 778 01eb 4801     		.2byte	0x148
+ 779 01ed 6B000000 		.4byte	0x6b
+ 780 01f1 00000000 		.4byte	.LFB41
+ 781 01f5 1C000000 		.4byte	.LFE41-.LFB41
+ 782 01f9 01       		.uleb128 0x1
+ 783 01fa 9C       		.byte	0x9c
+ 784 01fb 10       		.uleb128 0x10
+ 785 01fc 53020000 		.4byte	.LASF31
+ 786 0200 01       		.byte	0x1
+ 787 0201 5D01     		.2byte	0x15d
+ 788 0203 00000000 		.4byte	.LFB42
+ 789 0207 14000000 		.4byte	.LFE42-.LFB42
+ 790 020b 01       		.uleb128 0x1
+ 791 020c 9C       		.byte	0x9c
+ 792 020d 10       		.uleb128 0x10
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 22
+
+
+ 793 020e 50000000 		.4byte	.LASF32
+ 794 0212 01       		.byte	0x1
+ 795 0213 7801     		.2byte	0x178
+ 796 0215 00000000 		.4byte	.LFB43
+ 797 0219 14000000 		.4byte	.LFE43-.LFB43
+ 798 021d 01       		.uleb128 0x1
+ 799 021e 9C       		.byte	0x9c
+ 800 021f 10       		.uleb128 0x10
+ 801 0220 BD000000 		.4byte	.LASF33
+ 802 0224 01       		.byte	0x1
+ 803 0225 9101     		.2byte	0x191
+ 804 0227 00000000 		.4byte	.LFB44
+ 805 022b 14000000 		.4byte	.LFE44-.LFB44
+ 806 022f 01       		.uleb128 0x1
+ 807 0230 9C       		.byte	0x9c
+ 808 0231 12       		.uleb128 0x12
+ 809 0232 12030000 		.4byte	.LASF34
+ 810 0236 01       		.byte	0x1
+ 811 0237 1F       		.byte	0x1f
+ 812 0238 3C020000 		.4byte	0x23c
+ 813 023c 05       		.uleb128 0x5
+ 814 023d 5D000000 		.4byte	0x5d
+ 815 0241 13       		.uleb128 0x13
+ 816 0242 A9000000 		.4byte	0xa9
+ 817 0246 51020000 		.4byte	0x251
+ 818 024a 14       		.uleb128 0x14
+ 819 024b C3000000 		.4byte	0xc3
+ 820 024f 2F       		.byte	0x2f
+ 821 0250 00       		.byte	0
+ 822 0251 12       		.uleb128 0x12
+ 823 0252 18000000 		.4byte	.LASF35
+ 824 0256 01       		.byte	0x1
+ 825 0257 22       		.byte	0x22
+ 826 0258 41020000 		.4byte	0x241
+ 827 025c 00       		.byte	0
+ 828              		.section	.debug_abbrev,"",%progbits
+ 829              	.Ldebug_abbrev0:
+ 830 0000 01       		.uleb128 0x1
+ 831 0001 11       		.uleb128 0x11
+ 832 0002 01       		.byte	0x1
+ 833 0003 25       		.uleb128 0x25
+ 834 0004 0E       		.uleb128 0xe
+ 835 0005 13       		.uleb128 0x13
+ 836 0006 0B       		.uleb128 0xb
+ 837 0007 03       		.uleb128 0x3
+ 838 0008 0E       		.uleb128 0xe
+ 839 0009 1B       		.uleb128 0x1b
+ 840 000a 0E       		.uleb128 0xe
+ 841 000b 55       		.uleb128 0x55
+ 842 000c 17       		.uleb128 0x17
+ 843 000d 11       		.uleb128 0x11
+ 844 000e 01       		.uleb128 0x1
+ 845 000f 10       		.uleb128 0x10
+ 846 0010 17       		.uleb128 0x17
+ 847 0011 00       		.byte	0
+ 848 0012 00       		.byte	0
+ 849 0013 02       		.uleb128 0x2
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 23
+
+
+ 850 0014 24       		.uleb128 0x24
+ 851 0015 00       		.byte	0
+ 852 0016 0B       		.uleb128 0xb
+ 853 0017 0B       		.uleb128 0xb
+ 854 0018 3E       		.uleb128 0x3e
+ 855 0019 0B       		.uleb128 0xb
+ 856 001a 03       		.uleb128 0x3
+ 857 001b 0E       		.uleb128 0xe
+ 858 001c 00       		.byte	0
+ 859 001d 00       		.byte	0
+ 860 001e 03       		.uleb128 0x3
+ 861 001f 24       		.uleb128 0x24
+ 862 0020 00       		.byte	0
+ 863 0021 0B       		.uleb128 0xb
+ 864 0022 0B       		.uleb128 0xb
+ 865 0023 3E       		.uleb128 0x3e
+ 866 0024 0B       		.uleb128 0xb
+ 867 0025 03       		.uleb128 0x3
+ 868 0026 08       		.uleb128 0x8
+ 869 0027 00       		.byte	0
+ 870 0028 00       		.byte	0
+ 871 0029 04       		.uleb128 0x4
+ 872 002a 16       		.uleb128 0x16
+ 873 002b 00       		.byte	0
+ 874 002c 03       		.uleb128 0x3
+ 875 002d 0E       		.uleb128 0xe
+ 876 002e 3A       		.uleb128 0x3a
+ 877 002f 0B       		.uleb128 0xb
+ 878 0030 3B       		.uleb128 0x3b
+ 879 0031 05       		.uleb128 0x5
+ 880 0032 49       		.uleb128 0x49
+ 881 0033 13       		.uleb128 0x13
+ 882 0034 00       		.byte	0
+ 883 0035 00       		.byte	0
+ 884 0036 05       		.uleb128 0x5
+ 885 0037 35       		.uleb128 0x35
+ 886 0038 00       		.byte	0
+ 887 0039 49       		.uleb128 0x49
+ 888 003a 13       		.uleb128 0x13
+ 889 003b 00       		.byte	0
+ 890 003c 00       		.byte	0
+ 891 003d 06       		.uleb128 0x6
+ 892 003e 0F       		.uleb128 0xf
+ 893 003f 00       		.byte	0
+ 894 0040 0B       		.uleb128 0xb
+ 895 0041 0B       		.uleb128 0xb
+ 896 0042 49       		.uleb128 0x49
+ 897 0043 13       		.uleb128 0x13
+ 898 0044 00       		.byte	0
+ 899 0045 00       		.byte	0
+ 900 0046 07       		.uleb128 0x7
+ 901 0047 15       		.uleb128 0x15
+ 902 0048 00       		.byte	0
+ 903 0049 27       		.uleb128 0x27
+ 904 004a 19       		.uleb128 0x19
+ 905 004b 00       		.byte	0
+ 906 004c 00       		.byte	0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 24
+
+
+ 907 004d 08       		.uleb128 0x8
+ 908 004e 2E       		.uleb128 0x2e
+ 909 004f 00       		.byte	0
+ 910 0050 3F       		.uleb128 0x3f
+ 911 0051 19       		.uleb128 0x19
+ 912 0052 03       		.uleb128 0x3
+ 913 0053 0E       		.uleb128 0xe
+ 914 0054 3A       		.uleb128 0x3a
+ 915 0055 0B       		.uleb128 0xb
+ 916 0056 3B       		.uleb128 0x3b
+ 917 0057 0B       		.uleb128 0xb
+ 918 0058 27       		.uleb128 0x27
+ 919 0059 19       		.uleb128 0x19
+ 920 005a 11       		.uleb128 0x11
+ 921 005b 01       		.uleb128 0x1
+ 922 005c 12       		.uleb128 0x12
+ 923 005d 06       		.uleb128 0x6
+ 924 005e 40       		.uleb128 0x40
+ 925 005f 18       		.uleb128 0x18
+ 926 0060 9642     		.uleb128 0x2116
+ 927 0062 19       		.uleb128 0x19
+ 928 0063 00       		.byte	0
+ 929 0064 00       		.byte	0
+ 930 0065 09       		.uleb128 0x9
+ 931 0066 2E       		.uleb128 0x2e
+ 932 0067 01       		.byte	0x1
+ 933 0068 3F       		.uleb128 0x3f
+ 934 0069 19       		.uleb128 0x19
+ 935 006a 03       		.uleb128 0x3
+ 936 006b 0E       		.uleb128 0xe
+ 937 006c 3A       		.uleb128 0x3a
+ 938 006d 0B       		.uleb128 0xb
+ 939 006e 3B       		.uleb128 0x3b
+ 940 006f 0B       		.uleb128 0xb
+ 941 0070 27       		.uleb128 0x27
+ 942 0071 19       		.uleb128 0x19
+ 943 0072 11       		.uleb128 0x11
+ 944 0073 01       		.uleb128 0x1
+ 945 0074 12       		.uleb128 0x12
+ 946 0075 06       		.uleb128 0x6
+ 947 0076 40       		.uleb128 0x40
+ 948 0077 18       		.uleb128 0x18
+ 949 0078 9642     		.uleb128 0x2116
+ 950 007a 19       		.uleb128 0x19
+ 951 007b 01       		.uleb128 0x1
+ 952 007c 13       		.uleb128 0x13
+ 953 007d 00       		.byte	0
+ 954 007e 00       		.byte	0
+ 955 007f 0A       		.uleb128 0xa
+ 956 0080 05       		.uleb128 0x5
+ 957 0081 00       		.byte	0
+ 958 0082 03       		.uleb128 0x3
+ 959 0083 0E       		.uleb128 0xe
+ 960 0084 3A       		.uleb128 0x3a
+ 961 0085 0B       		.uleb128 0xb
+ 962 0086 3B       		.uleb128 0x3b
+ 963 0087 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 25
+
+
+ 964 0088 49       		.uleb128 0x49
+ 965 0089 13       		.uleb128 0x13
+ 966 008a 02       		.uleb128 0x2
+ 967 008b 18       		.uleb128 0x18
+ 968 008c 00       		.byte	0
+ 969 008d 00       		.byte	0
+ 970 008e 0B       		.uleb128 0xb
+ 971 008f 2E       		.uleb128 0x2e
+ 972 0090 01       		.byte	0x1
+ 973 0091 3F       		.uleb128 0x3f
+ 974 0092 19       		.uleb128 0x19
+ 975 0093 03       		.uleb128 0x3
+ 976 0094 0E       		.uleb128 0xe
+ 977 0095 3A       		.uleb128 0x3a
+ 978 0096 0B       		.uleb128 0xb
+ 979 0097 3B       		.uleb128 0x3b
+ 980 0098 0B       		.uleb128 0xb
+ 981 0099 27       		.uleb128 0x27
+ 982 009a 19       		.uleb128 0x19
+ 983 009b 11       		.uleb128 0x11
+ 984 009c 01       		.uleb128 0x1
+ 985 009d 12       		.uleb128 0x12
+ 986 009e 06       		.uleb128 0x6
+ 987 009f 40       		.uleb128 0x40
+ 988 00a0 18       		.uleb128 0x18
+ 989 00a1 9742     		.uleb128 0x2117
+ 990 00a3 19       		.uleb128 0x19
+ 991 00a4 01       		.uleb128 0x1
+ 992 00a5 13       		.uleb128 0x13
+ 993 00a6 00       		.byte	0
+ 994 00a7 00       		.byte	0
+ 995 00a8 0C       		.uleb128 0xc
+ 996 00a9 2E       		.uleb128 0x2e
+ 997 00aa 00       		.byte	0
+ 998 00ab 3F       		.uleb128 0x3f
+ 999 00ac 19       		.uleb128 0x19
+ 1000 00ad 03       		.uleb128 0x3
+ 1001 00ae 0E       		.uleb128 0xe
+ 1002 00af 3A       		.uleb128 0x3a
+ 1003 00b0 0B       		.uleb128 0xb
+ 1004 00b1 3B       		.uleb128 0x3b
+ 1005 00b2 0B       		.uleb128 0xb
+ 1006 00b3 27       		.uleb128 0x27
+ 1007 00b4 19       		.uleb128 0x19
+ 1008 00b5 49       		.uleb128 0x49
+ 1009 00b6 13       		.uleb128 0x13
+ 1010 00b7 11       		.uleb128 0x11
+ 1011 00b8 01       		.uleb128 0x1
+ 1012 00b9 12       		.uleb128 0x12
+ 1013 00ba 06       		.uleb128 0x6
+ 1014 00bb 40       		.uleb128 0x40
+ 1015 00bc 18       		.uleb128 0x18
+ 1016 00bd 9742     		.uleb128 0x2117
+ 1017 00bf 19       		.uleb128 0x19
+ 1018 00c0 00       		.byte	0
+ 1019 00c1 00       		.byte	0
+ 1020 00c2 0D       		.uleb128 0xd
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 26
+
+
+ 1021 00c3 34       		.uleb128 0x34
+ 1022 00c4 00       		.byte	0
+ 1023 00c5 03       		.uleb128 0x3
+ 1024 00c6 0E       		.uleb128 0xe
+ 1025 00c7 3A       		.uleb128 0x3a
+ 1026 00c8 0B       		.uleb128 0xb
+ 1027 00c9 3B       		.uleb128 0x3b
+ 1028 00ca 0B       		.uleb128 0xb
+ 1029 00cb 49       		.uleb128 0x49
+ 1030 00cc 13       		.uleb128 0x13
+ 1031 00cd 02       		.uleb128 0x2
+ 1032 00ce 18       		.uleb128 0x18
+ 1033 00cf 00       		.byte	0
+ 1034 00d0 00       		.byte	0
+ 1035 00d1 0E       		.uleb128 0xe
+ 1036 00d2 2E       		.uleb128 0x2e
+ 1037 00d3 01       		.byte	0x1
+ 1038 00d4 3F       		.uleb128 0x3f
+ 1039 00d5 19       		.uleb128 0x19
+ 1040 00d6 03       		.uleb128 0x3
+ 1041 00d7 0E       		.uleb128 0xe
+ 1042 00d8 3A       		.uleb128 0x3a
+ 1043 00d9 0B       		.uleb128 0xb
+ 1044 00da 3B       		.uleb128 0x3b
+ 1045 00db 05       		.uleb128 0x5
+ 1046 00dc 27       		.uleb128 0x27
+ 1047 00dd 19       		.uleb128 0x19
+ 1048 00de 49       		.uleb128 0x49
+ 1049 00df 13       		.uleb128 0x13
+ 1050 00e0 11       		.uleb128 0x11
+ 1051 00e1 01       		.uleb128 0x1
+ 1052 00e2 12       		.uleb128 0x12
+ 1053 00e3 06       		.uleb128 0x6
+ 1054 00e4 40       		.uleb128 0x40
+ 1055 00e5 18       		.uleb128 0x18
+ 1056 00e6 9742     		.uleb128 0x2117
+ 1057 00e8 19       		.uleb128 0x19
+ 1058 00e9 01       		.uleb128 0x1
+ 1059 00ea 13       		.uleb128 0x13
+ 1060 00eb 00       		.byte	0
+ 1061 00ec 00       		.byte	0
+ 1062 00ed 0F       		.uleb128 0xf
+ 1063 00ee 34       		.uleb128 0x34
+ 1064 00ef 00       		.byte	0
+ 1065 00f0 03       		.uleb128 0x3
+ 1066 00f1 0E       		.uleb128 0xe
+ 1067 00f2 3A       		.uleb128 0x3a
+ 1068 00f3 0B       		.uleb128 0xb
+ 1069 00f4 3B       		.uleb128 0x3b
+ 1070 00f5 05       		.uleb128 0x5
+ 1071 00f6 49       		.uleb128 0x49
+ 1072 00f7 13       		.uleb128 0x13
+ 1073 00f8 02       		.uleb128 0x2
+ 1074 00f9 18       		.uleb128 0x18
+ 1075 00fa 00       		.byte	0
+ 1076 00fb 00       		.byte	0
+ 1077 00fc 10       		.uleb128 0x10
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 27
+
+
+ 1078 00fd 2E       		.uleb128 0x2e
+ 1079 00fe 00       		.byte	0
+ 1080 00ff 3F       		.uleb128 0x3f
+ 1081 0100 19       		.uleb128 0x19
+ 1082 0101 03       		.uleb128 0x3
+ 1083 0102 0E       		.uleb128 0xe
+ 1084 0103 3A       		.uleb128 0x3a
+ 1085 0104 0B       		.uleb128 0xb
+ 1086 0105 3B       		.uleb128 0x3b
+ 1087 0106 05       		.uleb128 0x5
+ 1088 0107 27       		.uleb128 0x27
+ 1089 0108 19       		.uleb128 0x19
+ 1090 0109 11       		.uleb128 0x11
+ 1091 010a 01       		.uleb128 0x1
+ 1092 010b 12       		.uleb128 0x12
+ 1093 010c 06       		.uleb128 0x6
+ 1094 010d 40       		.uleb128 0x40
+ 1095 010e 18       		.uleb128 0x18
+ 1096 010f 9742     		.uleb128 0x2117
+ 1097 0111 19       		.uleb128 0x19
+ 1098 0112 00       		.byte	0
+ 1099 0113 00       		.byte	0
+ 1100 0114 11       		.uleb128 0x11
+ 1101 0115 2E       		.uleb128 0x2e
+ 1102 0116 00       		.byte	0
+ 1103 0117 3F       		.uleb128 0x3f
+ 1104 0118 19       		.uleb128 0x19
+ 1105 0119 03       		.uleb128 0x3
+ 1106 011a 0E       		.uleb128 0xe
+ 1107 011b 3A       		.uleb128 0x3a
+ 1108 011c 0B       		.uleb128 0xb
+ 1109 011d 3B       		.uleb128 0x3b
+ 1110 011e 05       		.uleb128 0x5
+ 1111 011f 27       		.uleb128 0x27
+ 1112 0120 19       		.uleb128 0x19
+ 1113 0121 49       		.uleb128 0x49
+ 1114 0122 13       		.uleb128 0x13
+ 1115 0123 11       		.uleb128 0x11
+ 1116 0124 01       		.uleb128 0x1
+ 1117 0125 12       		.uleb128 0x12
+ 1118 0126 06       		.uleb128 0x6
+ 1119 0127 40       		.uleb128 0x40
+ 1120 0128 18       		.uleb128 0x18
+ 1121 0129 9742     		.uleb128 0x2117
+ 1122 012b 19       		.uleb128 0x19
+ 1123 012c 00       		.byte	0
+ 1124 012d 00       		.byte	0
+ 1125 012e 12       		.uleb128 0x12
+ 1126 012f 34       		.uleb128 0x34
+ 1127 0130 00       		.byte	0
+ 1128 0131 03       		.uleb128 0x3
+ 1129 0132 0E       		.uleb128 0xe
+ 1130 0133 3A       		.uleb128 0x3a
+ 1131 0134 0B       		.uleb128 0xb
+ 1132 0135 3B       		.uleb128 0x3b
+ 1133 0136 0B       		.uleb128 0xb
+ 1134 0137 49       		.uleb128 0x49
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 28
+
+
+ 1135 0138 13       		.uleb128 0x13
+ 1136 0139 3F       		.uleb128 0x3f
+ 1137 013a 19       		.uleb128 0x19
+ 1138 013b 3C       		.uleb128 0x3c
+ 1139 013c 19       		.uleb128 0x19
+ 1140 013d 00       		.byte	0
+ 1141 013e 00       		.byte	0
+ 1142 013f 13       		.uleb128 0x13
+ 1143 0140 01       		.uleb128 0x1
+ 1144 0141 01       		.byte	0x1
+ 1145 0142 49       		.uleb128 0x49
+ 1146 0143 13       		.uleb128 0x13
+ 1147 0144 01       		.uleb128 0x1
+ 1148 0145 13       		.uleb128 0x13
+ 1149 0146 00       		.byte	0
+ 1150 0147 00       		.byte	0
+ 1151 0148 14       		.uleb128 0x14
+ 1152 0149 21       		.uleb128 0x21
+ 1153 014a 00       		.byte	0
+ 1154 014b 49       		.uleb128 0x49
+ 1155 014c 13       		.uleb128 0x13
+ 1156 014d 2F       		.uleb128 0x2f
+ 1157 014e 0B       		.uleb128 0xb
+ 1158 014f 00       		.byte	0
+ 1159 0150 00       		.byte	0
+ 1160 0151 00       		.byte	0
+ 1161              		.section	.debug_aranges,"",%progbits
+ 1162 0000 7C000000 		.4byte	0x7c
+ 1163 0004 0200     		.2byte	0x2
+ 1164 0006 00000000 		.4byte	.Ldebug_info0
+ 1165 000a 04       		.byte	0x4
+ 1166 000b 00       		.byte	0
+ 1167 000c 0000     		.2byte	0
+ 1168 000e 0000     		.2byte	0
+ 1169 0010 00000000 		.4byte	.LFB32
+ 1170 0014 24000000 		.4byte	.LFE32-.LFB32
+ 1171 0018 00000000 		.4byte	.LFB33
+ 1172 001c 26000000 		.4byte	.LFE33-.LFB33
+ 1173 0020 00000000 		.4byte	.LFB34
+ 1174 0024 1C000000 		.4byte	.LFE34-.LFB34
+ 1175 0028 00000000 		.4byte	.LFB35
+ 1176 002c 18000000 		.4byte	.LFE35-.LFB35
+ 1177 0030 00000000 		.4byte	.LFB36
+ 1178 0034 1C000000 		.4byte	.LFE36-.LFB36
+ 1179 0038 00000000 		.4byte	.LFB37
+ 1180 003c 14000000 		.4byte	.LFE37-.LFB37
+ 1181 0040 00000000 		.4byte	.LFB38
+ 1182 0044 50000000 		.4byte	.LFE38-.LFB38
+ 1183 0048 00000000 		.4byte	.LFB39
+ 1184 004c 2C000000 		.4byte	.LFE39-.LFB39
+ 1185 0050 00000000 		.4byte	.LFB40
+ 1186 0054 14000000 		.4byte	.LFE40-.LFB40
+ 1187 0058 00000000 		.4byte	.LFB41
+ 1188 005c 1C000000 		.4byte	.LFE41-.LFB41
+ 1189 0060 00000000 		.4byte	.LFB42
+ 1190 0064 14000000 		.4byte	.LFE42-.LFB42
+ 1191 0068 00000000 		.4byte	.LFB43
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 29
+
+
+ 1192 006c 14000000 		.4byte	.LFE43-.LFB43
+ 1193 0070 00000000 		.4byte	.LFB44
+ 1194 0074 14000000 		.4byte	.LFE44-.LFB44
+ 1195 0078 00000000 		.4byte	0
+ 1196 007c 00000000 		.4byte	0
+ 1197              		.section	.debug_ranges,"",%progbits
+ 1198              	.Ldebug_ranges0:
+ 1199 0000 00000000 		.4byte	.LFB32
+ 1200 0004 24000000 		.4byte	.LFE32
+ 1201 0008 00000000 		.4byte	.LFB33
+ 1202 000c 26000000 		.4byte	.LFE33
+ 1203 0010 00000000 		.4byte	.LFB34
+ 1204 0014 1C000000 		.4byte	.LFE34
+ 1205 0018 00000000 		.4byte	.LFB35
+ 1206 001c 18000000 		.4byte	.LFE35
+ 1207 0020 00000000 		.4byte	.LFB36
+ 1208 0024 1C000000 		.4byte	.LFE36
+ 1209 0028 00000000 		.4byte	.LFB37
+ 1210 002c 14000000 		.4byte	.LFE37
+ 1211 0030 00000000 		.4byte	.LFB38
+ 1212 0034 50000000 		.4byte	.LFE38
+ 1213 0038 00000000 		.4byte	.LFB39
+ 1214 003c 2C000000 		.4byte	.LFE39
+ 1215 0040 00000000 		.4byte	.LFB40
+ 1216 0044 14000000 		.4byte	.LFE40
+ 1217 0048 00000000 		.4byte	.LFB41
+ 1218 004c 1C000000 		.4byte	.LFE41
+ 1219 0050 00000000 		.4byte	.LFB42
+ 1220 0054 14000000 		.4byte	.LFE42
+ 1221 0058 00000000 		.4byte	.LFB43
+ 1222 005c 14000000 		.4byte	.LFE43
+ 1223 0060 00000000 		.4byte	.LFB44
+ 1224 0064 14000000 		.4byte	.LFE44
+ 1225 0068 00000000 		.4byte	0
+ 1226 006c 00000000 		.4byte	0
+ 1227              		.section	.debug_line,"",%progbits
+ 1228              	.Ldebug_line0:
+ 1229 0000 46010000 		.section	.debug_str,"MS",%progbits,1
+ 1229      02004800 
+ 1229      00000201 
+ 1229      FB0E0D00 
+ 1229      01010101 
+ 1230              	.LASF18:
+ 1231 0000 53657454 		.ascii	"SetTime_ISR_Start\000"
+ 1231      696D655F 
+ 1231      4953525F 
+ 1231      53746172 
+ 1231      7400
+ 1232              	.LASF14:
+ 1233 0012 72656733 		.ascii	"reg32\000"
+ 1233      3200
+ 1234              	.LASF35:
+ 1235 0018 43795261 		.ascii	"CyRamVectors\000"
+ 1235      6D566563 
+ 1235      746F7273 
+ 1235      00
+ 1236              	.LASF24:
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 30
+
+
+ 1237 0025 53657454 		.ascii	"SetTime_ISR_SetPriority\000"
+ 1237      696D655F 
+ 1237      4953525F 
+ 1237      53657450 
+ 1237      72696F72 
+ 1238              	.LASF3:
+ 1239 003d 73686F72 		.ascii	"short unsigned int\000"
+ 1239      7420756E 
+ 1239      7369676E 
+ 1239      65642069 
+ 1239      6E7400
+ 1240              	.LASF32:
+ 1241 0050 53657454 		.ascii	"SetTime_ISR_SetPending\000"
+ 1241      696D655F 
+ 1241      4953525F 
+ 1241      53657450 
+ 1241      656E6469 
+ 1242              	.LASF30:
+ 1243 0067 53657454 		.ascii	"SetTime_ISR_GetState\000"
+ 1243      696D655F 
+ 1243      4953525F 
+ 1243      47657453 
+ 1243      74617465 
+ 1244              	.LASF11:
+ 1245 007c 666C6F61 		.ascii	"float\000"
+ 1245      7400
+ 1246              	.LASF37:
+ 1247 0082 47656E65 		.ascii	"Generated_Source\\PSoC4\\SetTime_ISR.c\000"
+ 1247      72617465 
+ 1247      645F536F 
+ 1247      75726365 
+ 1247      5C50536F 
+ 1248              	.LASF29:
+ 1249 00a7 53657454 		.ascii	"SetTime_ISR_GetVector\000"
+ 1249      696D655F 
+ 1249      4953525F 
+ 1249      47657456 
+ 1249      6563746F 
+ 1250              	.LASF33:
+ 1251 00bd 53657454 		.ascii	"SetTime_ISR_ClearPending\000"
+ 1251      696D655F 
+ 1251      4953525F 
+ 1251      436C6561 
+ 1251      7250656E 
+ 1252              	.LASF20:
+ 1253 00d6 53657454 		.ascii	"SetTime_ISR_Interrupt\000"
+ 1253      696D655F 
+ 1253      4953525F 
+ 1253      496E7465 
+ 1253      72727570 
+ 1254              	.LASF26:
+ 1255 00ec 696E7465 		.ascii	"interruptState\000"
+ 1255      72727570 
+ 1255      74537461 
+ 1255      746500
+ 1256              	.LASF5:
+ 1257 00fb 6C6F6E67 		.ascii	"long unsigned int\000"
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 31
+
+
+ 1257      20756E73 
+ 1257      69676E65 
+ 1257      6420696E 
+ 1257      7400
+ 1258              	.LASF9:
+ 1259 010d 75696E74 		.ascii	"uint8\000"
+ 1259      3800
+ 1260              	.LASF36:
+ 1261 0113 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1261      43313120 
+ 1261      352E342E 
+ 1261      31203230 
+ 1261      31363036 
+ 1262 0146 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 1262      20726576 
+ 1262      6973696F 
+ 1262      6E203233 
+ 1262      37373135 
+ 1263 0179 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1263      66756E63 
+ 1263      74696F6E 
+ 1263      2D736563 
+ 1263      74696F6E 
+ 1264              	.LASF25:
+ 1265 01a1 7072696F 		.ascii	"priority\000"
+ 1265      72697479 
+ 1265      00
+ 1266              	.LASF21:
+ 1267 01aa 53657454 		.ascii	"SetTime_ISR_StartEx\000"
+ 1267      696D655F 
+ 1267      4953525F 
+ 1267      53746172 
+ 1267      74457800 
+ 1268              	.LASF28:
+ 1269 01be 53657454 		.ascii	"SetTime_ISR_Enable\000"
+ 1269      696D655F 
+ 1269      4953525F 
+ 1269      456E6162 
+ 1269      6C6500
+ 1270              	.LASF12:
+ 1271 01d1 646F7562 		.ascii	"double\000"
+ 1271      6C6500
+ 1272              	.LASF38:
+ 1273 01d8 433A5C55 		.ascii	"C:\\Users\\Arturo\\Documents\\MSC\\Subjects\\MDiscr"
+ 1273      73657273 
+ 1273      5C417274 
+ 1273      75726F5C 
+ 1273      446F6375 
+ 1274 0205 65746173 		.ascii	"etas\\Reference\\Liquid Crystal Display.cydsn\000"
+ 1274      5C526566 
+ 1274      6572656E 
+ 1274      63655C4C 
+ 1274      69717569 
+ 1275              	.LASF10:
+ 1276 0231 75696E74 		.ascii	"uint32\000"
+ 1276      333200
+ 1277              	.LASF1:
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 32
+
+
+ 1278 0238 756E7369 		.ascii	"unsigned char\000"
+ 1278      676E6564 
+ 1278      20636861 
+ 1278      7200
+ 1279              	.LASF8:
+ 1280 0246 756E7369 		.ascii	"unsigned int\000"
+ 1280      676E6564 
+ 1280      20696E74 
+ 1280      00
+ 1281              	.LASF31:
+ 1282 0253 53657454 		.ascii	"SetTime_ISR_Disable\000"
+ 1282      696D655F 
+ 1282      4953525F 
+ 1282      44697361 
+ 1282      626C6500 
+ 1283              	.LASF23:
+ 1284 0267 61646472 		.ascii	"address\000"
+ 1284      65737300 
+ 1285              	.LASF7:
+ 1286 026f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1286      206C6F6E 
+ 1286      6720756E 
+ 1286      7369676E 
+ 1286      65642069 
+ 1287              	.LASF15:
+ 1288 0286 63796973 		.ascii	"cyisraddress\000"
+ 1288      72616464 
+ 1288      72657373 
+ 1288      00
+ 1289              	.LASF19:
+ 1290 0293 53657454 		.ascii	"SetTime_ISR_Stop\000"
+ 1290      696D655F 
+ 1290      4953525F 
+ 1290      53746F70 
+ 1290      00
+ 1291              	.LASF17:
+ 1292 02a4 73697A65 		.ascii	"sizetype\000"
+ 1292      74797065 
+ 1292      00
+ 1293              	.LASF6:
+ 1294 02ad 6C6F6E67 		.ascii	"long long int\000"
+ 1294      206C6F6E 
+ 1294      6720696E 
+ 1294      7400
+ 1295              	.LASF13:
+ 1296 02bb 63686172 		.ascii	"char\000"
+ 1296      00
+ 1297              	.LASF2:
+ 1298 02c0 73686F72 		.ascii	"short int\000"
+ 1298      7420696E 
+ 1298      7400
+ 1299              	.LASF39:
+ 1300 02ca 53657454 		.ascii	"SetTime_ISR_GetPriority\000"
+ 1300      696D655F 
+ 1300      4953525F 
+ 1300      47657450 
+ 1300      72696F72 
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccqLgz19.s 			page 33
+
+
+ 1301              	.LASF27:
+ 1302 02e2 7072696F 		.ascii	"priorityOffset\000"
+ 1302      72697479 
+ 1302      4F666673 
+ 1302      657400
+ 1303              	.LASF4:
+ 1304 02f1 6C6F6E67 		.ascii	"long int\000"
+ 1304      20696E74 
+ 1304      00
+ 1305              	.LASF16:
+ 1306 02fa 6C6F6E67 		.ascii	"long double\000"
+ 1306      20646F75 
+ 1306      626C6500 
+ 1307              	.LASF0:
+ 1308 0306 7369676E 		.ascii	"signed char\000"
+ 1308      65642063 
+ 1308      68617200 
+ 1309              	.LASF34:
+ 1310 0312 70726573 		.ascii	"press_detect\000"
+ 1310      735F6465 
+ 1310      74656374 
+ 1310      00
+ 1311              	.LASF22:
+ 1312 031f 53657454 		.ascii	"SetTime_ISR_SetVector\000"
+ 1312      696D655F 
+ 1312      4953525F 
+ 1312      53657456 
+ 1312      6563746F 
+ 1313              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

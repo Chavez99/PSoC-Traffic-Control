@@ -1,0 +1,11 @@
+# Liquid Crystal Display
+# 2023-05-23 15:20:55Z
+
+# IO_2@[IOP=(3)][IoId=(2)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 2
+# IO_3@[IOP=(3)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 3 3
+set_location "ClockGenBlock" m0s8clockgenblockcell -1 -1 0
+set_io "Yellow_LED(0)" iocell 3 4
+set_io "Red_LED(0)" iocell 3 0
+set_io "Green_LED(0)" iocell 3 1

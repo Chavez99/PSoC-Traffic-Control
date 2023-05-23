@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Liquid Crystal Display-000</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\TopDesign</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Pins</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Analog</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Clocks</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Interrupts</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\System</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Directives</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Flash Security</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Header Files</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Source Files</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Source Files\main.c</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Liquid Crystal Display-000</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\TopDesign</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Pins</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Analog</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Clocks</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Interrupts</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\System</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Directives</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.cydwr\Flash Security</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Header Files</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Source Files</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Source Files\main.c</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\Bootloadable_1</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\Button_In</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\Clock_1</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cy_boot</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cy_lfclk</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\LED_Out</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\Simple_Counter_1</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cybootloader.c</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cybootloader.icf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cyfitter.h</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\cymetadata.c</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Generated_Source\PSoC4\project.h</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Liquid Crystal Display-000\Liquid Crystal Display">
+<ExpandedNodeIds>
+<v>Liquid Crystal Display-000</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\TopDesign</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Liquid Crystal Display-000</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\TopDesign</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Liquid Crystal Display-000</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Bootloadable_1.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Button_In.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Button_In_PM.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cybootloader.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Out.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Out_PM.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Liquid Crystal Display.cyacd</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Liquid Crystal Display.elf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Liquid Crystal Display.hex</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Liquid Crystal Display.map</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.gpdsc</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.rpt</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Liquid Crystal Display-000</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Bootloadable_1.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Button_In.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Button_In_PM.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cybootloader.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Out.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Out_PM.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Liquid Crystal Display.cyacd</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Liquid Crystal Display.elf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Liquid Crystal Display.hex</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\CortexM0\ARM_GCC_541\Debug\Liquid Crystal Display.map</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.gpdsc</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display.rpt</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Liquid Crystal Display_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>Liquid Crystal Display-000</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\PSoC 4 Architecture TRM</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\PSoC 4200 Family Datasheet</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\System Reference Guides</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\System Reference Guides\cy_boot_v5_82</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Bootloadable_v1_60.pdf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\cy_clock_v2_20.pdf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\cy_pins_v2_20</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Debouncer_v1_0.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>Liquid Crystal Display-000</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\PSoC 4 Architecture TRM</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\PSoC 4200 Family Datasheet</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\System Reference Guides</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\System Reference Guides\cy_boot_v5_82</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\System Reference Guides\cy_lfclk_v1_20</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Bootloadable_v1_60.pdf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\cy_clock_v2_20.pdf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\cy_pins_v2_20</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>Liquid Crystal Display-000\Liquid Crystal Display\Debouncer_v1_0.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="6c335137-fa19-46ce-bc2d-2fbeb6d5f2a2">
+<CyGuid_70084457-cd6a-4593-9ed0-7f6eeb432dc2 type_name="CyDesigner.Common.ProjMgmt.GUI.CyDependenciesCustomData" version="1">
+<dictName v=".\Liquid Crystal Display.cyprj">
+<listName />
+</dictName>
+</CyGuid_70084457-cd6a-4593-9ed0-7f6eeb432dc2>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\TopDesign\TopDesign.cysch" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1156, 690" SelectedTabbedMdiWindow="c63cea3f-6b4a-4519-ab7c-c2c56a69c8ff"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="7c5ca2c1-1730-4a9a-80d9-0e84b7aa5d22" /><DocumentWindow Key="C:\Users\Arturo\Documents\MSC\Subjects\MDiscretas\Reference\Liquid Crystal Display.cydsn\TopDesign\TopDesign.cysch" Guid="c63cea3f-6b4a-4519-ab7c-c2c56a69c8ff" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

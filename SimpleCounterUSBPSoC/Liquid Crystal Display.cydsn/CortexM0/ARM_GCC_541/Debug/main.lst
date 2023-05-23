@@ -1,0 +1,221 @@
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccpkNoYu.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB0:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyleft by Shahariar,2015
+   4:main.c        ****  * All Rights Released
+   5:main.c        ****  * OPEN SOFTWARE, NO WARRENTY 
+   6:main.c        ****  *
+   7:main.c        ****  * DODGY BROTHERS C CODING Inc.  
+   8:main.c        ****  * Programmed With No Style, BUG may appear in Future !!!
+   9:main.c        ****  * Non-Precision Soft-Only Clock, will Lose around 12 sec a day, ( may vary for other PSoC chips)
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** 
+  13:main.c        **** // flag variable is a volatile global variable to check interrupt
+  14:main.c        **** 
+  15:main.c        **** int main()
+  16:main.c        **** 
+  17:main.c        **** {
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  38 0004 0023     		movs	r3, #0
+  18:main.c        **** }
+  39              		.loc 1 18 0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccpkNoYu.s 			page 2
+
+
+  40 0006 1800     		movs	r0, r3
+  41 0008 BD46     		mov	sp, r7
+  42              		@ sp needed
+  43 000a 80BD     		pop	{r7, pc}
+  44              		.cfi_endproc
+  45              	.LFE0:
+  46              		.size	main, .-main
+  47              		.text
+  48              	.Letext0:
+  49              		.section	.debug_info,"",%progbits
+  50              	.Ldebug_info0:
+  51 0000 3E000000 		.4byte	0x3e
+  52 0004 0400     		.2byte	0x4
+  53 0006 00000000 		.4byte	.Ldebug_abbrev0
+  54 000a 04       		.byte	0x4
+  55 000b 01       		.uleb128 0x1
+  56 000c 00000000 		.4byte	.LASF0
+  57 0010 0C       		.byte	0xc
+  58 0011 8E000000 		.4byte	.LASF1
+  59 0015 95000000 		.4byte	.LASF2
+  60 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  61 001d 00000000 		.4byte	0
+  62 0021 00000000 		.4byte	.Ldebug_line0
+  63 0025 02       		.uleb128 0x2
+  64 0026 E9000000 		.4byte	.LASF3
+  65 002a 01       		.byte	0x1
+  66 002b 0F       		.byte	0xf
+  67 002c 3A000000 		.4byte	0x3a
+  68 0030 00000000 		.4byte	.LFB0
+  69 0034 0C000000 		.4byte	.LFE0-.LFB0
+  70 0038 01       		.uleb128 0x1
+  71 0039 9C       		.byte	0x9c
+  72 003a 03       		.uleb128 0x3
+  73 003b 04       		.byte	0x4
+  74 003c 05       		.byte	0x5
+  75 003d 696E7400 		.ascii	"int\000"
+  76 0041 00       		.byte	0
+  77              		.section	.debug_abbrev,"",%progbits
+  78              	.Ldebug_abbrev0:
+  79 0000 01       		.uleb128 0x1
+  80 0001 11       		.uleb128 0x11
+  81 0002 01       		.byte	0x1
+  82 0003 25       		.uleb128 0x25
+  83 0004 0E       		.uleb128 0xe
+  84 0005 13       		.uleb128 0x13
+  85 0006 0B       		.uleb128 0xb
+  86 0007 03       		.uleb128 0x3
+  87 0008 0E       		.uleb128 0xe
+  88 0009 1B       		.uleb128 0x1b
+  89 000a 0E       		.uleb128 0xe
+  90 000b 55       		.uleb128 0x55
+  91 000c 17       		.uleb128 0x17
+  92 000d 11       		.uleb128 0x11
+  93 000e 01       		.uleb128 0x1
+  94 000f 10       		.uleb128 0x10
+  95 0010 17       		.uleb128 0x17
+  96 0011 00       		.byte	0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccpkNoYu.s 			page 3
+
+
+  97 0012 00       		.byte	0
+  98 0013 02       		.uleb128 0x2
+  99 0014 2E       		.uleb128 0x2e
+ 100 0015 00       		.byte	0
+ 101 0016 3F       		.uleb128 0x3f
+ 102 0017 19       		.uleb128 0x19
+ 103 0018 03       		.uleb128 0x3
+ 104 0019 0E       		.uleb128 0xe
+ 105 001a 3A       		.uleb128 0x3a
+ 106 001b 0B       		.uleb128 0xb
+ 107 001c 3B       		.uleb128 0x3b
+ 108 001d 0B       		.uleb128 0xb
+ 109 001e 49       		.uleb128 0x49
+ 110 001f 13       		.uleb128 0x13
+ 111 0020 11       		.uleb128 0x11
+ 112 0021 01       		.uleb128 0x1
+ 113 0022 12       		.uleb128 0x12
+ 114 0023 06       		.uleb128 0x6
+ 115 0024 40       		.uleb128 0x40
+ 116 0025 18       		.uleb128 0x18
+ 117 0026 9742     		.uleb128 0x2117
+ 118 0028 19       		.uleb128 0x19
+ 119 0029 00       		.byte	0
+ 120 002a 00       		.byte	0
+ 121 002b 03       		.uleb128 0x3
+ 122 002c 24       		.uleb128 0x24
+ 123 002d 00       		.byte	0
+ 124 002e 0B       		.uleb128 0xb
+ 125 002f 0B       		.uleb128 0xb
+ 126 0030 3E       		.uleb128 0x3e
+ 127 0031 0B       		.uleb128 0xb
+ 128 0032 03       		.uleb128 0x3
+ 129 0033 08       		.uleb128 0x8
+ 130 0034 00       		.byte	0
+ 131 0035 00       		.byte	0
+ 132 0036 00       		.byte	0
+ 133              		.section	.debug_aranges,"",%progbits
+ 134 0000 1C000000 		.4byte	0x1c
+ 135 0004 0200     		.2byte	0x2
+ 136 0006 00000000 		.4byte	.Ldebug_info0
+ 137 000a 04       		.byte	0x4
+ 138 000b 00       		.byte	0
+ 139 000c 0000     		.2byte	0
+ 140 000e 0000     		.2byte	0
+ 141 0010 00000000 		.4byte	.LFB0
+ 142 0014 0C000000 		.4byte	.LFE0-.LFB0
+ 143 0018 00000000 		.4byte	0
+ 144 001c 00000000 		.4byte	0
+ 145              		.section	.debug_ranges,"",%progbits
+ 146              	.Ldebug_ranges0:
+ 147 0000 00000000 		.4byte	.LFB0
+ 148 0004 0C000000 		.4byte	.LFE0
+ 149 0008 00000000 		.4byte	0
+ 150 000c 00000000 		.4byte	0
+ 151              		.section	.debug_line,"",%progbits
+ 152              	.Ldebug_line0:
+ 153 0000 33000000 		.section	.debug_str,"MS",%progbits,1
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccpkNoYu.s 			page 4
+
+
+ 153      02001D00 
+ 153      00000201 
+ 153      FB0E0D00 
+ 153      01010101 
+ 154              	.LASF0:
+ 155 0000 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 155      43313120 
+ 155      352E342E 
+ 155      31203230 
+ 155      31363036 
+ 156 0033 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 156      20726576 
+ 156      6973696F 
+ 156      6E203233 
+ 156      37373135 
+ 157 0066 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 157      66756E63 
+ 157      74696F6E 
+ 157      2D736563 
+ 157      74696F6E 
+ 158              	.LASF1:
+ 159 008e 6D61696E 		.ascii	"main.c\000"
+ 159      2E6300
+ 160              	.LASF2:
+ 161 0095 433A5C55 		.ascii	"C:\\Users\\Arturo\\Documents\\MSC\\Subjects\\MDiscr"
+ 161      73657273 
+ 161      5C417274 
+ 161      75726F5C 
+ 161      446F6375 
+ 162 00c2 65746173 		.ascii	"etas\\Test\\Liquid Crystal Display.cydsn\000"
+ 162      5C546573 
+ 162      745C4C69 
+ 162      71756964 
+ 162      20437279 
+ 163              	.LASF3:
+ 164 00e9 6D61696E 		.ascii	"main\000"
+ 164      00
+ 165              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

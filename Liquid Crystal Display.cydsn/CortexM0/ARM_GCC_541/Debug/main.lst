@@ -1,0 +1,371 @@
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccHc9xwS.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB32:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyleft by Shahariar,2015
+   4:main.c        ****  * All Rights Released
+   5:main.c        ****  * OPEN SOFTWARE, NO WARRENTY 
+   6:main.c        ****  *
+   7:main.c        ****  * DODGY BROTHERS C CODING Inc.  
+   8:main.c        ****  * Programmed With No Style, BUG may appear in Future !!!
+   9:main.c        ****  * Non-Precision Soft-Only Clock, will Lose around 12 sec a day, ( may vary for other PSoC chips)
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** 
+  13:main.c        **** // flag variable is a volatile global variable to check interrupt
+  14:main.c        **** #include <project.h>
+  15:main.c        **** 
+  16:main.c        **** int main()
+  17:main.c        **** {
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  18:main.c        ****     Simple_TL_Control_1_Count7_1_Start();
+  38              		.loc 1 18 0
+  39 0004 FFF7FEFF 		bl	Simple_TL_Control_1_Count7_1_Start
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccHc9xwS.s 			page 2
+
+
+  19:main.c        ****     CyGlobalIntEnable;
+  40              		.loc 1 19 0
+  41              		.syntax divided
+  42              	@ 19 "main.c" 1
+  43 0008 62B6     		CPSIE   i
+  44              	@ 0 "" 2
+  45              		.thumb
+  46              		.syntax unified
+  47              	.L2:
+  20:main.c        ****     
+  21:main.c        ****     for(;;)
+  22:main.c        ****     
+  23:main.c        ****     {
+  24:main.c        ****     }
+  48              		.loc 1 24 0 discriminator 1
+  49 000a FEE7     		b	.L2
+  50              		.cfi_endproc
+  51              	.LFE32:
+  52              		.size	main, .-main
+  53              		.text
+  54              	.Letext0:
+  55              		.section	.debug_info,"",%progbits
+  56              	.Ldebug_info0:
+  57 0000 A0000000 		.4byte	0xa0
+  58 0004 0400     		.2byte	0x4
+  59 0006 00000000 		.4byte	.Ldebug_abbrev0
+  60 000a 04       		.byte	0x4
+  61 000b 01       		.uleb128 0x1
+  62 000c AE000000 		.4byte	.LASF14
+  63 0010 0C       		.byte	0xc
+  64 0011 1B000000 		.4byte	.LASF15
+  65 0015 45010000 		.4byte	.LASF16
+  66 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  67 001d 00000000 		.4byte	0
+  68 0021 00000000 		.4byte	.Ldebug_line0
+  69 0025 02       		.uleb128 0x2
+  70 0026 01       		.byte	0x1
+  71 0027 06       		.byte	0x6
+  72 0028 8C000000 		.4byte	.LASF0
+  73 002c 02       		.uleb128 0x2
+  74 002d 01       		.byte	0x1
+  75 002e 08       		.byte	0x8
+  76 002f 56000000 		.4byte	.LASF1
+  77 0033 02       		.uleb128 0x2
+  78 0034 02       		.byte	0x2
+  79 0035 05       		.byte	0x5
+  80 0036 A4000000 		.4byte	.LASF2
+  81 003a 02       		.uleb128 0x2
+  82 003b 02       		.byte	0x2
+  83 003c 07       		.byte	0x7
+  84 003d 79000000 		.4byte	.LASF3
+  85 0041 02       		.uleb128 0x2
+  86 0042 04       		.byte	0x4
+  87 0043 05       		.byte	0x5
+  88 0044 69000000 		.4byte	.LASF4
+  89 0048 02       		.uleb128 0x2
+  90 0049 04       		.byte	0x4
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccHc9xwS.s 			page 3
+
+
+  91 004a 07       		.byte	0x7
+  92 004b 27000000 		.4byte	.LASF5
+  93 004f 02       		.uleb128 0x2
+  94 0050 08       		.byte	0x8
+  95 0051 05       		.byte	0x5
+  96 0052 00000000 		.4byte	.LASF6
+  97 0056 02       		.uleb128 0x2
+  98 0057 08       		.byte	0x8
+  99 0058 07       		.byte	0x7
+ 100 0059 39000000 		.4byte	.LASF7
+ 101 005d 03       		.uleb128 0x3
+ 102 005e 04       		.byte	0x4
+ 103 005f 05       		.byte	0x5
+ 104 0060 696E7400 		.ascii	"int\000"
+ 105 0064 02       		.uleb128 0x2
+ 106 0065 04       		.byte	0x4
+ 107 0066 07       		.byte	0x7
+ 108 0067 0E000000 		.4byte	.LASF8
+ 109 006b 02       		.uleb128 0x2
+ 110 006c 04       		.byte	0x4
+ 111 006d 04       		.byte	0x4
+ 112 006e 50000000 		.4byte	.LASF9
+ 113 0072 02       		.uleb128 0x2
+ 114 0073 08       		.byte	0x8
+ 115 0074 04       		.byte	0x4
+ 116 0075 72000000 		.4byte	.LASF10
+ 117 0079 02       		.uleb128 0x2
+ 118 007a 01       		.byte	0x1
+ 119 007b 08       		.byte	0x8
+ 120 007c 64000000 		.4byte	.LASF11
+ 121 0080 02       		.uleb128 0x2
+ 122 0081 08       		.byte	0x8
+ 123 0082 04       		.byte	0x4
+ 124 0083 98000000 		.4byte	.LASF12
+ 125 0087 02       		.uleb128 0x2
+ 126 0088 04       		.byte	0x4
+ 127 0089 07       		.byte	0x7
+ 128 008a 3C010000 		.4byte	.LASF13
+ 129 008e 04       		.uleb128 0x4
+ 130 008f 22000000 		.4byte	.LASF17
+ 131 0093 01       		.byte	0x1
+ 132 0094 10       		.byte	0x10
+ 133 0095 5D000000 		.4byte	0x5d
+ 134 0099 00000000 		.4byte	.LFB32
+ 135 009d 0C000000 		.4byte	.LFE32-.LFB32
+ 136 00a1 01       		.uleb128 0x1
+ 137 00a2 9C       		.byte	0x9c
+ 138 00a3 00       		.byte	0
+ 139              		.section	.debug_abbrev,"",%progbits
+ 140              	.Ldebug_abbrev0:
+ 141 0000 01       		.uleb128 0x1
+ 142 0001 11       		.uleb128 0x11
+ 143 0002 01       		.byte	0x1
+ 144 0003 25       		.uleb128 0x25
+ 145 0004 0E       		.uleb128 0xe
+ 146 0005 13       		.uleb128 0x13
+ 147 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccHc9xwS.s 			page 4
+
+
+ 148 0007 03       		.uleb128 0x3
+ 149 0008 0E       		.uleb128 0xe
+ 150 0009 1B       		.uleb128 0x1b
+ 151 000a 0E       		.uleb128 0xe
+ 152 000b 55       		.uleb128 0x55
+ 153 000c 17       		.uleb128 0x17
+ 154 000d 11       		.uleb128 0x11
+ 155 000e 01       		.uleb128 0x1
+ 156 000f 10       		.uleb128 0x10
+ 157 0010 17       		.uleb128 0x17
+ 158 0011 00       		.byte	0
+ 159 0012 00       		.byte	0
+ 160 0013 02       		.uleb128 0x2
+ 161 0014 24       		.uleb128 0x24
+ 162 0015 00       		.byte	0
+ 163 0016 0B       		.uleb128 0xb
+ 164 0017 0B       		.uleb128 0xb
+ 165 0018 3E       		.uleb128 0x3e
+ 166 0019 0B       		.uleb128 0xb
+ 167 001a 03       		.uleb128 0x3
+ 168 001b 0E       		.uleb128 0xe
+ 169 001c 00       		.byte	0
+ 170 001d 00       		.byte	0
+ 171 001e 03       		.uleb128 0x3
+ 172 001f 24       		.uleb128 0x24
+ 173 0020 00       		.byte	0
+ 174 0021 0B       		.uleb128 0xb
+ 175 0022 0B       		.uleb128 0xb
+ 176 0023 3E       		.uleb128 0x3e
+ 177 0024 0B       		.uleb128 0xb
+ 178 0025 03       		.uleb128 0x3
+ 179 0026 08       		.uleb128 0x8
+ 180 0027 00       		.byte	0
+ 181 0028 00       		.byte	0
+ 182 0029 04       		.uleb128 0x4
+ 183 002a 2E       		.uleb128 0x2e
+ 184 002b 00       		.byte	0
+ 185 002c 3F       		.uleb128 0x3f
+ 186 002d 19       		.uleb128 0x19
+ 187 002e 03       		.uleb128 0x3
+ 188 002f 0E       		.uleb128 0xe
+ 189 0030 3A       		.uleb128 0x3a
+ 190 0031 0B       		.uleb128 0xb
+ 191 0032 3B       		.uleb128 0x3b
+ 192 0033 0B       		.uleb128 0xb
+ 193 0034 49       		.uleb128 0x49
+ 194 0035 13       		.uleb128 0x13
+ 195 0036 11       		.uleb128 0x11
+ 196 0037 01       		.uleb128 0x1
+ 197 0038 12       		.uleb128 0x12
+ 198 0039 06       		.uleb128 0x6
+ 199 003a 40       		.uleb128 0x40
+ 200 003b 18       		.uleb128 0x18
+ 201 003c 9642     		.uleb128 0x2116
+ 202 003e 19       		.uleb128 0x19
+ 203 003f 00       		.byte	0
+ 204 0040 00       		.byte	0
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccHc9xwS.s 			page 5
+
+
+ 205 0041 00       		.byte	0
+ 206              		.section	.debug_aranges,"",%progbits
+ 207 0000 1C000000 		.4byte	0x1c
+ 208 0004 0200     		.2byte	0x2
+ 209 0006 00000000 		.4byte	.Ldebug_info0
+ 210 000a 04       		.byte	0x4
+ 211 000b 00       		.byte	0
+ 212 000c 0000     		.2byte	0
+ 213 000e 0000     		.2byte	0
+ 214 0010 00000000 		.4byte	.LFB32
+ 215 0014 0C000000 		.4byte	.LFE32-.LFB32
+ 216 0018 00000000 		.4byte	0
+ 217 001c 00000000 		.4byte	0
+ 218              		.section	.debug_ranges,"",%progbits
+ 219              	.Ldebug_ranges0:
+ 220 0000 00000000 		.4byte	.LFB32
+ 221 0004 0C000000 		.4byte	.LFE32
+ 222 0008 00000000 		.4byte	0
+ 223 000c 00000000 		.4byte	0
+ 224              		.section	.debug_line,"",%progbits
+ 225              	.Ldebug_line0:
+ 226 0000 39000000 		.section	.debug_str,"MS",%progbits,1
+ 226      02001D00 
+ 226      00000201 
+ 226      FB0E0D00 
+ 226      01010101 
+ 227              	.LASF6:
+ 228 0000 6C6F6E67 		.ascii	"long long int\000"
+ 228      206C6F6E 
+ 228      6720696E 
+ 228      7400
+ 229              	.LASF8:
+ 230 000e 756E7369 		.ascii	"unsigned int\000"
+ 230      676E6564 
+ 230      20696E74 
+ 230      00
+ 231              	.LASF15:
+ 232 001b 6D61696E 		.ascii	"main.c\000"
+ 232      2E6300
+ 233              	.LASF17:
+ 234 0022 6D61696E 		.ascii	"main\000"
+ 234      00
+ 235              	.LASF5:
+ 236 0027 6C6F6E67 		.ascii	"long unsigned int\000"
+ 236      20756E73 
+ 236      69676E65 
+ 236      6420696E 
+ 236      7400
+ 237              	.LASF7:
+ 238 0039 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 238      206C6F6E 
+ 238      6720756E 
+ 238      7369676E 
+ 238      65642069 
+ 239              	.LASF9:
+ 240 0050 666C6F61 		.ascii	"float\000"
+ 240      7400
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccHc9xwS.s 			page 6
+
+
+ 241              	.LASF1:
+ 242 0056 756E7369 		.ascii	"unsigned char\000"
+ 242      676E6564 
+ 242      20636861 
+ 242      7200
+ 243              	.LASF11:
+ 244 0064 63686172 		.ascii	"char\000"
+ 244      00
+ 245              	.LASF4:
+ 246 0069 6C6F6E67 		.ascii	"long int\000"
+ 246      20696E74 
+ 246      00
+ 247              	.LASF10:
+ 248 0072 646F7562 		.ascii	"double\000"
+ 248      6C6500
+ 249              	.LASF3:
+ 250 0079 73686F72 		.ascii	"short unsigned int\000"
+ 250      7420756E 
+ 250      7369676E 
+ 250      65642069 
+ 250      6E7400
+ 251              	.LASF0:
+ 252 008c 7369676E 		.ascii	"signed char\000"
+ 252      65642063 
+ 252      68617200 
+ 253              	.LASF12:
+ 254 0098 6C6F6E67 		.ascii	"long double\000"
+ 254      20646F75 
+ 254      626C6500 
+ 255              	.LASF2:
+ 256 00a4 73686F72 		.ascii	"short int\000"
+ 256      7420696E 
+ 256      7400
+ 257              	.LASF14:
+ 258 00ae 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 258      43313120 
+ 258      352E342E 
+ 258      31203230 
+ 258      31363036 
+ 259 00e1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 259      20726576 
+ 259      6973696F 
+ 259      6E203233 
+ 259      37373135 
+ 260 0114 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 260      66756E63 
+ 260      74696F6E 
+ 260      2D736563 
+ 260      74696F6E 
+ 261              	.LASF13:
+ 262 013c 73697A65 		.ascii	"sizetype\000"
+ 262      74797065 
+ 262      00
+ 263              	.LASF16:
+ 264 0145 433A5C55 		.ascii	"C:\\Users\\Arturo\\Documents\\MSC\\Subjects\\MDiscr"
+ 264      73657273 
+ 264      5C417274 
+ARM GAS  C:\Users\Arturo\AppData\Local\Temp\ccHc9xwS.s 			page 7
+
+
+ 264      75726F5C 
+ 264      446F6375 
+ 265 0172 65746173 		.ascii	"etas\\Test\\Liquid Crystal Display.cydsn\000"
+ 265      5C546573 
+ 265      745C4C69 
+ 265      71756964 
+ 265      20437279 
+ 266              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,0 +1,10 @@
+C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/CortexM0/ARM_GCC_541/Debug/cybootloader.o : C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/Generated_Source/PSoC4/cybootloader.c C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/Generated_Source/PSoC4/cytypes.h 
+
+C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/Generated_Source/PSoC4/cybootloader.c : 
+
+C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
+
+C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/Generated_Source/PSoC4/cyfitter.h : 
+
+C:/Users/Arturo/Documents/MSC/Subjects/MDiscretas/Test/Liquid\ Crystal\ Display.cydsn/Generated_Source/PSoC4/cytypes.h : 
+
